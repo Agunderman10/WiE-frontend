@@ -13,5 +13,7 @@
 * If you already used the command above you can skip this step. If not, run the command below to install your dependencies.
     > npm install
 
-* Now that all of the dependencies are installed you should be able to run the app. Either attach an ios or android device and type the following command:
-    > npm start
+* Now that all of the dependencies are installed you should be able to run the app. Either attach an ios or android device and type the following command based on if your device is running android or ios:
+    > npx react-native run-android
+    or
+    > npx react-native run-ios
