@@ -1,4 +1,4 @@
-# App built by Andrew Gunderman for Ohio State use
+# App for Ohio State's Women in Engineering
 
 ### How To Install?
 * Firstly, open a new terminal. You need to pull the repo locally. Navigate to the directory in which you wish to download the repo by using the cd command. When you have navigated to the correct directory use the following command to pull the repo locally:
