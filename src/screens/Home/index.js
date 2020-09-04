@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, ImageBackground } from "react-native";
 
 import { Card } from "../../components/Card/index";
 import { Header } from "./../../components/Header/index";
@@ -31,7 +31,7 @@ export function Home() {
 
   return (
     <View>
-      <Header title={"Home"}/>
+      <Header title={"Home"} />
       <Text style={styles.eventTypeHeader}>OSU Events</Text>
       <FlatList
         horizontal={true}
