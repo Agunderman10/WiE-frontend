@@ -30,7 +30,7 @@ export const Landing = () => {
         <View style={styles.container}>
           <Image
             style={styles.frontImage}
-            source={{ uri: "../../../images/Oval.jpg" }}
+            source={require("../../../images/ohiostatelogo.jpg")}
           />
           <TextInput placeholder="OSU Email..." style={styles.textInput} />
           <TextInput placeholder="Password..." style={styles.textInput} />
@@ -38,7 +38,7 @@ export const Landing = () => {
             <Text>Sign In</Text>
           </TouchableOpacity>
           <View style={styles.signUpLabel}>
-            <Text>Don't have an account? Sign up</Text>
+            <Text style={styles.signUpText}>Don't have an account? Sign up</Text>
           </View>
         </View>
       </ImageBackground>

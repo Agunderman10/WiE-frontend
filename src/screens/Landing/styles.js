@@ -14,13 +14,15 @@ export const styles = StyleSheet.create({
         height: '100%',
     },
     frontImage: {
-        height: 200,
-        width: 200,
+        height: '20.5%',
+        width: '25.5%',
+        marginTop: 60,
+        marginBottom: 60,
     },
     textInput: {
         borderRadius: 10,
         borderWidth: 1,
-        width: 250,
+        width: '65%',
         height: 40,
         marginBottom: 30,
         backgroundColor: "white",
@@ -39,5 +41,9 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "flex-end",
         marginBottom: 25,
+    },
+    signUpText: {
+        color: "white",
+        fontWeight: "bold",
     }
 });
