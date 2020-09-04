@@ -3,6 +3,7 @@ import { View, Text, FlatList, ImageBackground } from "react-native";
 
 import { Card } from "../../components/Card/index";
 import { Header } from "./../../components/Header/index";
+import { ListCard } from "./../../components/ListCard/index";
 import { styles } from "./styles";
 
 export function Home() {
@@ -32,29 +33,35 @@ export function Home() {
   return (
     <View>
       <Header title={"Home"} />
-      <Text style={styles.eventTypeHeader}>OSU Events</Text>
-      <FlatList
-        horizontal={true}
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.label}
-      />
+      <ListCard>
+        <Text style={styles.eventTypeHeader}>OSU Events</Text>
+        <FlatList
+          horizontal={true}
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.label}
+        />
+      </ListCard>
 
-      <Text style={styles.eventTypeHeader}>DOI Events</Text>
-      <FlatList
-        horizontal={true}
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.label}
-      />
+      <ListCard>
+        <Text style={styles.eventTypeHeader}>DOI Events</Text>
+        <FlatList
+          horizontal={true}
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.label}
+        />
+      </ListCard>
 
-      <Text style={styles.eventTypeHeader}>WiE LC Events</Text>
-      <FlatList
-        horizontal={true}
-        data={DATA}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.label}
-      />
+      <ListCard>
+        <Text style={styles.eventTypeHeader}>WiE LC Events</Text>
+        <FlatList
+          horizontal={true}
+          data={DATA}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.label}
+        />
+      </ListCard>
     </View>
   );
 }

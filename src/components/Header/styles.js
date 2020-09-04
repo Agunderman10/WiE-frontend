@@ -10,9 +10,9 @@ export const styles = StyleSheet.create({
         backgroundColor: "red",
     },
     headerTitle: {
-        fontSize: 25,
+        fontSize: 23,
         fontWeight: 'bold',
         marginLeft: '4%',
-        color: 'black',
+        color: 'white',
     }
 });
