@@ -14,7 +14,7 @@ export function Screens() {
     <Tab.Navigator
       initialRouteName="Home"
       tabBarOptions={{
-        activeTintColor: '#e91e63',
+        activeTintColor: 'red',
       }}
     >
       <Tab.Screen

@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         borderBottomColor: "black",
         borderBottomWidth: 1,
+        backgroundColor: "red",
     },
     headerTitle: {
         fontSize: 25,
