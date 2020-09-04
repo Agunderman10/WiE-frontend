@@ -1,13 +1,58 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React from "react";
+import { View, Text, FlatList } from "react-native";
 
-import { Card } from '../../components/Card/index'
+import { Card } from "../../components/Card/index";
+import { styles } from "./styles";
 
 export function Home() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home!</Text>
-        <Card image={"./../../../images/Oval.jpg"} label={"WiE Empowherment Session"}></Card>
-      </View>
-    );
-  }
+  const DATA = [
+    {
+      image: "./../../../images/Oval.jpg",
+      label: "WiE Empowherment Session",
+    },
+    {
+      image: "./../../../images/Oval.jpg",
+      label: "WiE Mental Health Session",
+    },
+    {
+      image: "./../../../images/Oval.jpg",
+      label: "WiE Mental Session",
+    },
+    {
+      image: "./../../../images/Oval.jpg",
+      label: "WiE Session",
+    },
+  ];
+
+  const renderItem = ({ item }) => {
+    return <Card image={item.image} label={item.label} />;
+  };
+
+  return (
+    <View>
+      <Text style={styles.eventTypeHeader}>OSU Events</Text>
+      <FlatList
+        horizontal={true}
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.label}
+      />
+
+      <Text style={styles.eventTypeHeader}>DOI Events</Text>
+      <FlatList
+        horizontal={true}
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.label}
+      />
+
+      <Text style={styles.eventTypeHeader}>WiE LC Events</Text>
+      <FlatList
+        horizontal={true}
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.label}
+      />
+    </View>
+  );
+}
