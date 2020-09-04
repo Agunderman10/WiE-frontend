@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
         width: 170,
         height: 100,
         marginLeft: 7,
+        marginBottom: '5%',
     },
     cardBackgroundImage: {
         width: '100%',
