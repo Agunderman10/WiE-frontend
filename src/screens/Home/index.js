@@ -32,7 +32,7 @@ export function Home() {
 
   return (
     <View>
-      <Header title={"Home"} />
+    <Header title={"Home"} />
       <ListCard>
         <Text style={styles.eventTypeHeader}>OSU Events</Text>
         <FlatList
