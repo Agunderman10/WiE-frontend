@@ -1,10 +1,14 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
-export const QuestionCard = () => {
+import { styles } from "./styles";
+
+export const QuestionCard = (props) => {
   return (
     <View>
-      <Text></Text>
+      <Text style={styles.questionHeader}>{"  " + props.header}</Text>
+      <Text style={styles.questionBody}>{"    \u2022" + props.questionBody}</Text>
+      
     </View>
   );
 };

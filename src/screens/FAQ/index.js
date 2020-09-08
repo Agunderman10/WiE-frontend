@@ -9,20 +9,20 @@ import { styles } from "./styles";
 export function FAQ() {
   return (
     <View>
-    <Header title={"FAQ"}/>
+      <Header title={"FAQ"} />
       <ListCard>
         <Text>Discussion Board</Text>
-        </ListCard>
+      </ListCard>
       <ListCard>
-        <Text style={styles.questionHeader}>Question 1</Text>
+        <QuestionCard questionBody={"You will be living in Drackett with the rest of the learning community."} header={"What should I expect for housing my first year?"}/>
       </ListCard>
 
       <ListCard>
-        <Text>Question 1</Text>
+        <QuestionCard questionBody={"You need to have at least 16 credit hours of classes that qualify for the program."} header={"What are the requirements for graduating in the program?"}/>
       </ListCard>
 
       <ListCard>
-        <Text>Question 1</Text>
+        <QuestionCard questionBody={"It is typically around 16 credit hours. Over 18 will cost extra, so it's suggested to stay below that threshold."} header={"What does a typical first year schedule look like?"} />
       </ListCard>
     </View>
   );
