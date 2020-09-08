@@ -14,15 +14,47 @@ export function FAQ() {
         <Text>Discussion Board</Text>
       </ListCard>
       <ListCard>
-        <QuestionCard questionBody={"You will be living in Drackett with the rest of the learning community."} header={"What should I expect for housing my first year?"}/>
+        <QuestionCard
+          questionBody={
+            "You will be living in Drackett with the rest of the learning community."
+          }
+          header={"What should I expect for housing my first year?"}
+        />
       </ListCard>
 
       <ListCard>
-        <QuestionCard questionBody={"You need to have at least 16 credit hours of classes that qualify for the program."} header={"What are the requirements for graduating in the program?"}/>
+        <QuestionCard
+          questionBody={
+            "You need to have at least 16 credit hours of classes that qualify for the program."
+          }
+          header={"What are the requirements for graduating in the program?"}
+        />
       </ListCard>
 
       <ListCard>
-        <QuestionCard questionBody={"It is typically around 16 credit hours. Over 18 will cost extra, so it's suggested to stay below that threshold."} header={"What does a typical first year schedule look like?"} />
+        <QuestionCard
+          questionBody={
+            "It is typically around 16 credit hours. Over 18 will cost extra, so it's suggested to stay below that threshold."
+          }
+          header={"What does a typical first year schedule look like?"}
+        />
+      </ListCard>
+
+      <ListCard>
+        <QuestionCard
+          questionBody={
+            "It is typically around 16 credit hours. Over 18 will cost extra, so it's suggested to stay below that threshold."
+          }
+          header={"What does a typical first year schedule look like?"}
+        />
+      </ListCard>
+      <ListCard>
+        <QuestionCard
+          questionBody={
+            "It is typically around 16 credit hours. Over 18 will cost extra, so it's suggested to stay below that threshold."
+          }
+          header={"What does a typical first year schedule look like?"}
+        />
       </ListCard>
     </View>
   );
