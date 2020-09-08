@@ -7,7 +7,7 @@ export const QuestionCard = (props) => {
   return (
     <View>
       <Text style={styles.questionHeader}>{props.header}</Text>
-      <Text style={styles.questionBody}>{"    \u2022" + props.questionBody}</Text>
+      <Text style={styles.questionBody}>{"\u2022" + props.questionBody}</Text>
       
     </View>
   );

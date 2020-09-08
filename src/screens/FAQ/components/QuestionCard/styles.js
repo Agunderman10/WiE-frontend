@@ -7,4 +7,7 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         marginLeft: 5,
     },
+    questionBody: {
+        marginLeft: 15,
+    }
 });
