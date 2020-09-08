@@ -69,6 +69,7 @@ export function StudyGroups() {
             keyExtractor={(item) => item.label}
           />
         </ListCard>
+        <View style={styles.bottomGroup}></View>
       </ScrollView>
     </View>
   );

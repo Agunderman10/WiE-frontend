@@ -1,6 +1,9 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+    bottomGroup: {
+        marginBottom: 70,
+    },
     groupHeader: {
         position: "relative",
         fontSize: 20,
