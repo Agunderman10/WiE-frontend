@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         height: '10%',
         width: '100%',
-        borderBottomColor: "black",
+        borderBottomColor: "lightgrey",
         borderBottomWidth: 1,
         backgroundColor: "red",
     },
