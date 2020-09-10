@@ -12,7 +12,10 @@ export function FAQ() {
       <ScrollView>
         <Header title={"FAQ"} />
         <ListCard>
-          <Text>Discussion Board</Text>
+          <View style={styles.discussionBoard}>
+            <Text style={styles.discussionBoardText}>Discussion Board</Text>
+          </View>
+          <Text style={styles.moreInfo}>More info &gt;</Text>
         </ListCard>
         <ListCard>
           <QuestionCard
