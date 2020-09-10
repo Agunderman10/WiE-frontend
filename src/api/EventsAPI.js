@@ -1,11 +1,11 @@
 import axios from "axios";
 import { url } from "./../constants/app";
 
-export const getEvents = async () => {
-  await axios
+export const getEvents = () => {
+  return axios
     .get(url + "events")
     .then((res) => {
-      console.log(res.data);
+      return res.data;
     })
     .catch((e) => {
       console.log(e);
