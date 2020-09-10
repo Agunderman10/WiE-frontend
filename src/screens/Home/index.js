@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, FlatList } from "react-native";
 
 import { Card } from "../../components/Card/index";
 import { Header } from "./../../components/Header/index";
 import { ListCard } from "./../../components/ListCard/index";
+import { getEvents } from "./../../api/EventsAPI"
 import { styles } from "./styles";
 
 export function Home() {
+
+  useEffect(() => {
+    getEvents();
+  }, []);
+
   const DATA = [
     {
       image: "./../../../images/Oval.jpg",
