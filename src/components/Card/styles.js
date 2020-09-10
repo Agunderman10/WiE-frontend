@@ -16,14 +16,12 @@ export const styles = StyleSheet.create({
     },
     eventLabelContainer: {
         position: "absolute",
-        flex: 1,
-        borderRadius: 15,
+        bottom: -1,
+        width: "100%",
     },
     eventLabel: {
         color: "black",
         backgroundColor: "white",
-        borderRadius: 5,
         textAlign: 'center',
-        marginTop: '40%',
     }
 });
