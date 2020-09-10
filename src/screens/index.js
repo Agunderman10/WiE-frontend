@@ -33,7 +33,7 @@ export function Screens() {
         options={{
           tabBarLabel: 'Resources',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
+            <MaterialCommunityIcons name="account-group" color={color} size={size} />
           ),
         }}
       />
@@ -43,7 +43,7 @@ export function Screens() {
         options={{
           tabBarLabel: 'Study Groups',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+            <MaterialCommunityIcons name="book-open-page-variant" color={color} size={size} />
           ),
         }}
       />
@@ -53,7 +53,7 @@ export function Screens() {
         options={{
           tabBarLabel: 'FAQ',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+            <MaterialCommunityIcons name="frequently-asked-questions" color={color} size={size} />
           ),
         }}
       />
