@@ -61,6 +61,16 @@ export function StudyGroups() {
         </ListCard>
 
         <ListCard>
+          <Text style={styles.groupHeader}>Physics 1251</Text>
+          <FlatList
+            horizontal={true}
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.label}
+          />
+        </ListCard>
+
+        <ListCard>
           <Text style={styles.groupHeader}>Chem 1210</Text>
           <FlatList
             horizontal={true}
