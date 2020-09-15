@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   resourceImage: {
     alignSelf: "center",
     width: "100%",
-    height: 200,
+    height: 210,
     borderColor: "lightgrey",
     borderWidth: 1,
   },

@@ -31,7 +31,7 @@ export function Resources() {
           <ImageBackground
             style={styles.resourceImage}
             imageStyle={{borderRadius: 25}}
-            source={require("./../../../images/Oval.jpg")}
+            source={require("./../../../images/peertutoringflyer.jpg")}
           >
             <Text style={styles.resourceTypeHeader}>Drackett/Dorm Tutoring</Text>
           </ImageBackground>
