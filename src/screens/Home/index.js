@@ -58,7 +58,7 @@ export function Home() {
     <View>
       <Header title={"Home"} />
       <ListCard>
-        <Text style={styles.eventTypeHeader}>OSU Events</Text>
+        <Text style={styles.eventTypeHeader}>MEP PREFACE</Text>
         <FlatList
           horizontal={true}
           data={osuEvents}
