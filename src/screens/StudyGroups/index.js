@@ -79,6 +79,16 @@ export function StudyGroups() {
             keyExtractor={(item) => item.label}
           />
         </ListCard>
+
+        <ListCard>
+          <Text style={styles.groupHeader}>Math 1172</Text>
+          <FlatList
+            horizontal={true}
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.label}
+          />
+        </ListCard>
         <View style={styles.bottomGroup}></View>
       </ScrollView>
     </View>
