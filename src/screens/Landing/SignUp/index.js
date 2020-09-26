@@ -13,36 +13,56 @@ import { styles } from "./../styles";
 
 import { Screens } from "../../index"; // will remove this later
 
-export const SignUp = () => {
+export const SignUp = ({ setSignUpModalVisible, signUpModalVisible, setSignInModalVisible }) => {
   const signUp = () => {
     // sign up logic
-    setModalVisible(false);
+    setSignUpModalVisible(false);
   };
 
-  const [modalVisible, setModalVisible] = useState(true);
+  const openSignIn = () => {
+    setSignInModalVisible(true);
+    setSignUpModalVisible(false);
+  };
+
   return (
-    <Modal visible={modalVisible} animationType="slide">
-      <ImageBackground
-        style={styles.backgroundImage}
-        source={require("../../../../images/Oval.jpg")}
-      >
-        <View style={styles.container}>
-          <Image
-            style={styles.frontImage}
-            source={require("../../../../images/ohiostatelogo.jpg")}
-          />
-          <TextInput placeholder="OSU Email..." style={styles.signUpTextInput} />
-          <TextInput placeholder="Full Name..." style={styles.signUpTextInput} />
-          <TextInput placeholder="Password..." style={styles.signUpTextInput} />
-          <TextInput placeholder="Confirm Password..." style={styles.signUpTextInput} />
-          <TouchableOpacity onPress={signUp} style={styles.loginButton}>
-            <Text>Sign Up</Text>
-          </TouchableOpacity>
-          <View style={styles.signUpLabel}>
-            <Text style={styles.signUpText}>Already have an account? Sign in</Text>
+    <View>
+      <Modal visible={signUpModalVisible} animationType="fade">
+        <ImageBackground
+          style={styles.backgroundImage}
+          source={require("../../../../images/Oval.jpg")}
+        >
+          <View style={styles.container}>
+            <Image
+              style={styles.frontImage}
+              source={require("../../../../images/ohiostatelogo.jpg")}
+            />
+            <TextInput
+              placeholder="OSU Email..."
+              style={styles.signUpTextInput}
+            />
+            <TextInput
+              placeholder="Full Name..."
+              style={styles.signUpTextInput}
+            />
+            <TextInput
+              placeholder="Password..."
+              style={styles.signUpTextInput}
+            />
+            <TextInput
+              placeholder="Confirm Password..."
+              style={styles.signUpTextInput}
+            />
+            <TouchableOpacity onPress={signUp} style={styles.loginButton}>
+              <Text>Sign Up</Text>
+            </TouchableOpacity>
+            <View style={styles.signUpLabel}>
+              <Text onPress={openSignIn} style={styles.signUpText}>
+                Already have an account? Sign in
+              </Text>
+            </View>
           </View>
-        </View>
-      </ImageBackground>
-    </Modal>
+        </ImageBackground>
+      </Modal>
+    </View>
   );
 };
