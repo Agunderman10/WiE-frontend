@@ -5,11 +5,24 @@ import {
   FlatList,
   ImageBackground,
   ScrollView,
+  Linking,
+  Alert,
 } from "react-native";
 
 import { Header } from "./../../components/Header/index";
 import { ListCard } from "./../../components/ListCard/index";
 import { styles } from "./styles";
+
+const lookUpWithGoogle = () => {
+  let url = `https://go.osu.edu/peertutoring`;
+  Linking.canOpenURL(url).then((isSupported) => {
+    if (isSupported) {
+      Linking.openURL(url);
+    } else {
+      Alert.alert("Error opening page", "There was an issue opening the page.");
+    }
+  });
+};
 
 export function Resources() {
   return (
@@ -19,7 +32,7 @@ export function Resources() {
         <ListCard>
           <ImageBackground
             style={styles.resourceImage}
-            imageStyle={{borderRadius: 25}}
+            imageStyle={{ borderRadius: 25 }}
             source={require("./../../../images/Oval.jpg")}
           >
             <Text style={styles.resourceTypeHeader}>ACE Tutoring</Text>
@@ -29,17 +42,19 @@ export function Resources() {
         <ListCard>
           <ImageBackground
             style={styles.resourceImage}
-            imageStyle={{borderRadius: 25}}
+            imageStyle={{ borderRadius: 25 }}
             source={require("./../../../images/peertutoringflyer.jpg")}
           >
-            <Text style={styles.resourceTypeHeader}>Drackett/Dorm Tutoring</Text>
+            <Text style={styles.resourceTypeHeader}>
+              Drackett/Dorm Tutoring
+            </Text>
           </ImageBackground>
         </ListCard>
 
         <ListCard>
           <ImageBackground
             style={styles.resourceImageBottom}
-            imageStyle={{borderRadius: 25}}
+            imageStyle={{ borderRadius: 25 }}
             source={require("./../../../images/Oval.jpg")}
           >
             <Text style={styles.resourceTypeHeader}>MSLC</Text>

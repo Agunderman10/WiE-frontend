@@ -27,6 +27,14 @@ export const styles = StyleSheet.create({
         marginBottom: 30,
         backgroundColor: "white",
     },
+    signUpTextInput: {
+        borderRadius: 10,
+        borderWidth: 1,
+        width: '65%',
+        height: 40,
+        marginBottom: 20,
+        backgroundColor: "white",
+    },
     loginButton: {
         justifyContent: "center",
         alignItems: "center",
