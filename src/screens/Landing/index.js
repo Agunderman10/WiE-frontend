@@ -22,6 +22,7 @@ export const Landing = () => {
   const signIn = () => {
     // sign in logic
     setSignInModalVisible(false);
+    setSignUpModalVisible(false);
   };
 
   const openSignUp = () => {

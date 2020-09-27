@@ -17,6 +17,7 @@ export const SignUp = ({ setSignUpModalVisible, signUpModalVisible, setSignInMod
   const signUp = () => {
     // sign up logic
     setSignUpModalVisible(false);
+    setSignInModalVisible(false);
   };
 
   const openSignIn = () => {
