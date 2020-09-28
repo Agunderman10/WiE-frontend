@@ -19,6 +19,7 @@ export function Home() {
   const getEventsFromAPI = async () => {
     await getEvents()
       .then((data) => {
+        console.log(data);
         // organize data into arrays based on type for ui display
         for(var i = 0; i < data.length; i++) {
           if(data[i].type === "MEP PREFACE") {

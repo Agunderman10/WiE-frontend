@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, FlatList, ScrollView } from "react-native";
 
 import { Card } from "../../components/Card/index";
 import { Header } from "./../../components/Header/index";
 import { ListCard } from "./../../components/ListCard/index";
+import { getStudyGroups } from "./../../api/StudyGroupsAPI";
 import { styles } from "./styles";
 
 export function StudyGroups() {
+
+  useEffect(() => {
+    getStudyGroupsFromApI();
+  }, []);
+
+  const getStudyGroupsFromApI = async () => {
+    await getStudyGroups().then((data) => {
+      console.log(data);
+    })
+  }
+
   const DATA = [
     {
       image: "./../../../images/Oval.jpg",
