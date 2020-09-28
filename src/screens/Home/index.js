@@ -69,8 +69,10 @@ export function Home() {
       <ListCard>
         <Text style={styles.eventTypeHeader}>MEP PREFACE</Text>
         <FlatList
+          style={{height: '20%'}}
           horizontal={true}
           data={osuEventsRef.current}
+          extraData={osuEventsRef.current}
           renderItem={renderItem}
           keyExtractor={(item) => item.label}
         />
@@ -79,8 +81,10 @@ export function Home() {
       <ListCard>
         <Text style={styles.eventTypeHeader}>DOI Events</Text>
         <FlatList
+          style={{height: '20%'}}
           horizontal={true}
           data={doiEventsRef.current}
+          extraData={doiEventsRef.current}
           renderItem={renderItem}
           keyExtractor={(item) => item.label}
         />
@@ -89,8 +93,10 @@ export function Home() {
       <ListCard>
         <Text style={styles.eventTypeHeader}>WiE LC Events</Text>
         <FlatList
+          style={{height: '20%'}}
           horizontal={true}
           data={wieLcEventsRef.current}
+          extraData={wieLcEventsRef.current}
           renderItem={renderItem}
           keyExtractor={(item) => item.label}
         />
