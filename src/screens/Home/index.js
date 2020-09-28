@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { View, Text, FlatList } from "react-native";
 
 import { Card } from "../../components/Card/index";
@@ -8,9 +8,9 @@ import { getEvents } from "./../../api/EventsAPI";
 import { styles } from "./styles";
 
 export function Home() {
-  const [osuEvents, setOsuEvents] = useState({});
-  const [doiEvents, setDoiEvents] = useState({});
-  const [wieLcEvents, setWieLcEvents] = useState({});
+  const osuEventsRef = useRef([]);
+  const doiEventsRef = useRef([]);
+  const wieLcEventsRef = useRef([]);
 
   useEffect(() => {
     getEventsFromAPI();
@@ -19,10 +19,18 @@ export function Home() {
   const getEventsFromAPI = async () => {
     await getEvents()
       .then((data) => {
-        console.log(data);
-        setOsuEvents(data.osu_events);
-        setDoiEvents(data.doi_events);
-        setWieLcEvents(data.wie_lc_events);
+        // organize data into arrays based on type for ui display
+        for(var i = 0; i < data.length; i++) {
+          if(data[i].type === "MEP PREFACE") {
+            osuEventsRef.current.push({ label: data[i].label, image: "./../../../images/Oval.jpg" });
+          }
+          else if(data[i].type === "DOI Events") {
+            doiEventsRef.current.push({ label: data[i].label, image: "./../../../images/Oval.jpg" });
+          }
+          else {
+            wieLcEventsRef.current.push({ label: data[i].label, image: "./../../../images/Oval.jpg" });
+          }
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -61,7 +69,7 @@ export function Home() {
         <Text style={styles.eventTypeHeader}>MEP PREFACE</Text>
         <FlatList
           horizontal={true}
-          data={osuEvents}
+          data={osuEventsRef.current}
           renderItem={renderItem}
           keyExtractor={(item) => item.label}
         />
@@ -71,7 +79,7 @@ export function Home() {
         <Text style={styles.eventTypeHeader}>DOI Events</Text>
         <FlatList
           horizontal={true}
-          data={doiEvents}
+          data={doiEventsRef.current}
           renderItem={renderItem}
           keyExtractor={(item) => item.label}
         />
@@ -81,7 +89,7 @@ export function Home() {
         <Text style={styles.eventTypeHeader}>WiE LC Events</Text>
         <FlatList
           horizontal={true}
-          data={wieLcEvents}
+          data={wieLcEventsRef.current}
           renderItem={renderItem}
           keyExtractor={(item) => item.label}
         />
