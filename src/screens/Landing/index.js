@@ -12,7 +12,6 @@ import {
 
 import { styles } from "./styles";
 
-import { Screens } from "../index"; // will remove this later
 import { SignUp } from "./SignUp";
 
 export const Landing = () => {
