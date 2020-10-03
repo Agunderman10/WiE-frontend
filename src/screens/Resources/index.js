@@ -7,14 +7,16 @@ import {
   ScrollView,
   Linking,
   Alert,
+  TouchableOpacity,
 } from "react-native";
 
 import { Header } from "./../../components/Header/index";
 import { ListCard } from "./../../components/ListCard/index";
 import { styles } from "./styles";
 
-const lookUpWithGoogle = () => {
-  let url = `https://go.osu.edu/peertutoring`;
+const lookUpWithGoogle = (resourceUrl) => {
+  console.log("look up pressed")
+  let url = resourceUrl;
   Linking.canOpenURL(url).then((isSupported) => {
     if (isSupported) {
       Linking.openURL(url);
@@ -30,35 +32,41 @@ export function Resources() {
       <ScrollView>
         <Header title={"Resources"} />
         <ListCard>
-          <ImageBackground
-            style={styles.resourceImage}
-            imageStyle={{ borderRadius: 25 }}
-            source={require("./../../../images/Oval.jpg")}
-          >
-            <Text style={styles.resourceTypeHeader}>ACE Tutoring</Text>
-          </ImageBackground>
+          <TouchableOpacity onPress={() => lookUpWithGoogle("https://go.osu.edu/peertutoring")}>
+            <ImageBackground
+              style={styles.resourceImage}
+              imageStyle={{ borderRadius: 25 }}
+              source={require("./../../../images/Oval.jpg")}
+            >
+              <Text style={styles.resourceTypeHeader}>ACE Tutoring</Text>
+            </ImageBackground>
+          </TouchableOpacity>
         </ListCard>
 
         <ListCard>
-          <ImageBackground
-            style={styles.resourceImage}
-            imageStyle={{ borderRadius: 25 }}
-            source={require("./../../../images/peertutoringflyer.jpg")}
-          >
-            <Text style={styles.resourceTypeHeader}>
-              Drackett/Dorm Tutoring
-            </Text>
-          </ImageBackground>
+          <TouchableOpacity>
+            <ImageBackground
+              style={styles.resourceImage}
+              imageStyle={{ borderRadius: 25 }}
+              source={require("./../../../images/peertutoringflyer.jpg")}
+            >
+              <Text style={styles.resourceTypeHeader}>
+                Drackett/Dorm Tutoring
+              </Text>
+            </ImageBackground>
+          </TouchableOpacity>
         </ListCard>
 
         <ListCard>
-          <ImageBackground
-            style={styles.resourceImageBottom}
-            imageStyle={{ borderRadius: 25 }}
-            source={require("./../../../images/Oval.jpg")}
-          >
-            <Text style={styles.resourceTypeHeader}>MSLC</Text>
-          </ImageBackground>
+          <TouchableOpacity>
+            <ImageBackground
+              style={styles.resourceImageBottom}
+              imageStyle={{ borderRadius: 25 }}
+              source={require("./../../../images/Oval.jpg")}
+            >
+              <Text style={styles.resourceTypeHeader}>MSLC</Text>
+            </ImageBackground>
+          </TouchableOpacity>
         </ListCard>
       </ScrollView>
     </View>

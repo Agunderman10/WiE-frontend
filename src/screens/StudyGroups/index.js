@@ -73,7 +73,8 @@ export function StudyGroups() {
           <FlatList
             style={{height: '10%'}}
             horizontal={true}
-            data={DATA}
+            data={fehRef.current}
+            extraData={fehRef.current}
             renderItem={renderItem}
             keyExtractor={(item) => item.label}
           />
@@ -84,7 +85,8 @@ export function StudyGroups() {
           <FlatList
             style={{height: '10%'}}
             horizontal={true}
-            data={DATA}
+            data={physics1250Ref.current}
+            extraData={physics1250Ref.current}
             renderItem={renderItem}
             keyExtractor={(item) => item.label}
           />
