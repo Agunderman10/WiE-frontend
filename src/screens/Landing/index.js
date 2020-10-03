@@ -43,7 +43,7 @@ export const Landing = () => {
               source={require("../../../images/ohiostatelogo.jpg")}
             />
             <TextInput placeholder="OSU Email..." style={styles.textInput} />
-            <TextInput placeholder="Password..." style={styles.textInput} />
+            <TextInput placeholder="Password..." secureTextEntry={true} style={styles.textInput} />
             <TouchableOpacity onPress={signIn} style={styles.loginButton}>
               <Text>Sign In</Text>
             </TouchableOpacity>
