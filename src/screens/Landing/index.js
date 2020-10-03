@@ -8,10 +8,14 @@ import {
   Image,
   OpaqueColorValue,
   ImageBackground,
+  Alert,
 } from "react-native";
+import { AsyncStorage } from "@react-native-community/async-storage";
 
 import { styles } from "./styles";
 
+import { checkLoginCredentials } from "./../../api/UsersAPI";
+import { url } from "./../../constants/app";
 import { SignUp } from "./SignUp";
 
 export const Landing = () => {
@@ -20,8 +24,7 @@ export const Landing = () => {
 
   const signIn = () => {
     // sign in logic
-    setSignInModalVisible(false);
-    setSignUpModalVisible(false);
+    checkLoginCredentials();
   };
 
   const openSignUp = () => {
@@ -42,7 +45,11 @@ export const Landing = () => {
               source={require("../../../images/ohiostatelogo.jpg")}
             />
             <TextInput placeholder="OSU Email..." style={styles.textInput} />
-            <TextInput placeholder="Password..." secureTextEntry={true} style={styles.textInput} />
+            <TextInput
+              placeholder="Password..."
+              secureTextEntry={true}
+              style={styles.textInput}
+            />
             <TouchableOpacity onPress={signIn} style={styles.loginButton}>
               <Text>Sign In</Text>
             </TouchableOpacity>
