@@ -32,7 +32,7 @@ export function Resources() {
       <ScrollView>
         <Header title={"Resources"} />
         <ListCard>
-          <TouchableOpacity onPress={() => lookUpWithGoogle("https://go.osu.edu/peertutoring")}>
+          <TouchableOpacity>
             <ImageBackground
               style={styles.resourceImage}
               imageStyle={{ borderRadius: 25 }}
@@ -44,7 +44,7 @@ export function Resources() {
         </ListCard>
 
         <ListCard>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => lookUpWithGoogle("https://go.osu.edu/peertutoring")}>
             <ImageBackground
               style={styles.resourceImage}
               imageStyle={{ borderRadius: 25 }}
