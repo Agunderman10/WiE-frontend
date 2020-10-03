@@ -47,10 +47,12 @@ export const SignUp = ({ setSignUpModalVisible, signUpModalVisible, setSignInMod
             />
             <TextInput
               placeholder="Password..."
+              secureTextEntry={true}
               style={styles.signUpTextInput}
             />
             <TextInput
               placeholder="Confirm Password..."
+              secureTextEntry={true}
               style={styles.signUpTextInput}
             />
             <TouchableOpacity onPress={signUp} style={styles.loginButton}>
