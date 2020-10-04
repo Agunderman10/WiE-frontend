@@ -1,10 +1,10 @@
 import axios from "axios";
 import { url } from "./../constants/app";
 
-export const checkLoginCredentials = () => {
+export const checkLoginCredentials = (username, password) => {
     axios.post(url + 'signin', {
-        firstName: 'Fred',
-        lastName: 'Flintstone'
+        email: username,
+        password: password,
       })
       .then(function (response) {
         console.log(response.data);

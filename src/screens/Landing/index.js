@@ -21,10 +21,12 @@ import { SignUp } from "./SignUp";
 export const Landing = () => {
   const [signInModalVisible, setSignInModalVisible] = useState(true);
   const [signUpModalVisible, setSignUpModalVisible] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const signIn = () => {
     // sign in logic
-    checkLoginCredentials();
+    checkLoginCredentials(email, password);
   };
 
   const openSignUp = () => {
@@ -44,9 +46,10 @@ export const Landing = () => {
               style={styles.frontImage}
               source={require("../../../images/ohiostatelogo.jpg")}
             />
-            <TextInput placeholder="OSU Email..." style={styles.textInput} />
+            <TextInput placeholder="OSU Email..." onChangeText={(userEmail) => setEmail(userEmail)} style={styles.textInput} />
             <TextInput
               placeholder="Password..."
+              onChangeText={(userPassword) => setPassword(userPassword)}
               secureTextEntry={true}
               style={styles.textInput}
             />
