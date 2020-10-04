@@ -24,9 +24,17 @@ export const Landing = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = () => {
+  const signIn = async () => {
     // sign in logic
-    checkLoginCredentials(email, password);
+    var isSuccess = await checkLoginCredentials(email, password);
+
+    if(isSuccess) {
+      setSignUpModalVisible(false);
+      setSignInModalVisible(false);
+    }
+    else {
+      Alert.alert('Error', 'There was an issue with your sign in. Please try again.')
+    }
   };
 
   const openSignUp = () => {
