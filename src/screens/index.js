@@ -1,27 +1,37 @@
-import * as React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+import * as React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { Home } from './Home/index';
-import { Resources } from './Resources/index';
-import { StudyGroups } from './StudyGroups/index';
-import { FAQ } from './FAQ/index';
+import { Home } from "./Home/index";
+import { Resources } from "./Resources/index";
+import { StudyGroups } from "./StudyGroups/index";
+import { FAQ } from "./FAQ/index";
 
 const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+function HomeStack() {
+  return (
+    <Stack.Navigator headerMode={"none"}>
+      <Stack.Screen name="Home" component={Home} />
+    </Stack.Navigator>
+  );
+}
 
 export function Screens() {
   return (
     <Tab.Navigator
       initialRouteName="Home"
       tabBarOptions={{
-        activeTintColor: 'red',
+        activeTintColor: "red",
       }}
     >
       <Tab.Screen
         name="Home"
-        component={Home}
+        children={HomeStack}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
@@ -31,9 +41,13 @@ export function Screens() {
         name="Resources"
         component={Resources}
         options={{
-          tabBarLabel: 'Resources',
+          tabBarLabel: "Resources",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="account-group" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="account-group"
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
@@ -41,9 +55,13 @@ export function Screens() {
         name="Study Groups"
         component={StudyGroups}
         options={{
-          tabBarLabel: 'Study Groups',
+          tabBarLabel: "Study Groups",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="book-open-page-variant" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="book-open-page-variant"
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
@@ -51,9 +69,13 @@ export function Screens() {
         name="FAQ"
         component={FAQ}
         options={{
-          tabBarLabel: 'FAQ',
+          tabBarLabel: "FAQ",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="frequently-asked-questions" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="frequently-asked-questions"
+              color={color}
+              size={size}
+            />
           ),
         }}
       />
