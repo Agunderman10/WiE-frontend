@@ -7,14 +7,16 @@ import { Home } from "./Home/index";
 import { Resources } from "./Resources/index";
 import { StudyGroups } from "./StudyGroups/index";
 import { FAQ } from "./FAQ/index";
+import { IndividualEvent } from "./IndividualEvent";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
 function HomeStack() {
   return (
-    <Stack.Navigator headerMode={"none"}>
+    <Stack.Navigator>
       <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Individual Event" component={IndividualEvent} />
     </Stack.Navigator>
   );
 }

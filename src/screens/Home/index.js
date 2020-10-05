@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, Button } from "react-native";
 
 import { Card } from "../../components/Card/index";
 import { Header } from "./../../components/Header/index";
@@ -7,7 +7,7 @@ import { ListCard } from "./../../components/ListCard/index";
 import { getEvents } from "./../../api/EventsAPI";
 import { styles } from "./styles";
 
-export function Home() {
+export function Home({ navigation }) {
   const osuEventsRef = useRef([]);
   const doiEventsRef = useRef([]);
   const wieLcEventsRef = useRef([]);
@@ -65,7 +65,8 @@ export function Home() {
 
   return (
     <View>
-      <Header title={"Home"} />
+      {/*<Header title={"Home"} />*/}
+      <Button title="Go to Event" onPress={() => navigation.navigate('Individual Event')} />
       <ListCard>
         <Text style={styles.eventTypeHeader}>MEP PREFACE</Text>
         <FlatList
