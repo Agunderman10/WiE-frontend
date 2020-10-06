@@ -6,6 +6,7 @@ import { Header } from "./../../components/Header/index";
 import { ListCard } from "./../../components/ListCard/index";
 import { getEvents } from "./../../api/EventsAPI";
 import { styles } from "./styles";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export function Home({ navigation }) {
   const osuEventsRef = useRef([]);
@@ -21,15 +22,22 @@ export function Home({ navigation }) {
       .then((data) => {
         console.log(data);
         // organize data into arrays based on type for ui display
-        for(var i = 0; i < data.length; i++) {
-          if(data[i].type === "MEP PREFACE") {
-            osuEventsRef.current.push({ label: data[i].label, image: "./../../../images/Oval.jpg" });
-          }
-          else if(data[i].type === "DOI Events") {
-            doiEventsRef.current.push({ label: data[i].label, image: "./../../../images/Oval.jpg" });
-          }
-          else {
-            wieLcEventsRef.current.push({ label: data[i].label, image: "./../../../images/Oval.jpg" });
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].type === "MEP PREFACE") {
+            osuEventsRef.current.push({
+              label: data[i].label,
+              image: "./../../../images/Oval.jpg",
+            });
+          } else if (data[i].type === "DOI Events") {
+            doiEventsRef.current.push({
+              label: data[i].label,
+              image: "./../../../images/Oval.jpg",
+            });
+          } else {
+            wieLcEventsRef.current.push({
+              label: data[i].label,
+              image: "./../../../images/Oval.jpg",
+            });
           }
         }
       })
@@ -60,17 +68,16 @@ export function Home({ navigation }) {
   */
 
   const renderItem = ({ item }) => {
-    return <Card image={item.image} label={item.label} />;
+    return <Card image={item.image} label={item.label} navigation={navigation}/>;
   };
 
   return (
     <View>
       {/*<Header title={"Home"} />*/}
-      <Button title="Go to Event" onPress={() => navigation.navigate('Individual Event')} />
       <ListCard>
         <Text style={styles.eventTypeHeader}>MEP PREFACE</Text>
         <FlatList
-          style={{height: '20%'}}
+          style={{ height: "20%" }}
           horizontal={true}
           data={osuEventsRef.current}
           extraData={osuEventsRef.current}
@@ -82,7 +89,7 @@ export function Home({ navigation }) {
       <ListCard>
         <Text style={styles.eventTypeHeader}>DOI Events</Text>
         <FlatList
-          style={{height: '20%'}}
+          style={{ height: "20%" }}
           horizontal={true}
           data={doiEventsRef.current}
           extraData={doiEventsRef.current}
@@ -94,7 +101,7 @@ export function Home({ navigation }) {
       <ListCard>
         <Text style={styles.eventTypeHeader}>WiE LC Events</Text>
         <FlatList
-          style={{height: '20%'}}
+          style={{ height: "20%" }}
           horizontal={true}
           data={wieLcEventsRef.current}
           extraData={wieLcEventsRef.current}
