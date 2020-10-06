@@ -7,7 +7,7 @@ import { styles } from "./styles";
 export const Card = ({ image, label, navigation }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate("Individual Event")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Individual Event", {image, label, navigation})}>
         <ImageBackground
           style={styles.cardBackgroundImage}
           imageStyle={{ borderRadius: 15 }}
