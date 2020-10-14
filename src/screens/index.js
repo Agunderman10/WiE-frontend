@@ -15,8 +15,34 @@ const Stack = createStackNavigator();
 function HomeStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Individual Event" component={IndividualEvent} />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerStyle: {
+            backgroundColor: "red",
+          },
+          headerTintColor: "white",
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 23,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="Individual Event"
+        component={IndividualEvent}
+        options={{
+          headerStyle: {
+            backgroundColor: "red",
+          },
+          headerTintColor: "white",
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 23,
+          },
+        }}
+      />
     </Stack.Navigator>
   );
 }
