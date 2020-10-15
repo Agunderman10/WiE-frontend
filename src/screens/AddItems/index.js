@@ -24,7 +24,7 @@ export const AddItems = () => {
       <Text style={styles.text}>Time:</Text>
       <View style={styles.textInputContainer}>
         <TextInput style={styles.textInput} />
-        <Picker style={styles.timePicker} selectedValue={timeIsAmOrPm}>
+        <Picker style={styles.timePicker} selectedValue={timeIsAmOrPm} onValueChange={(itemValue, itemIndex) => setTimeIsAmOrPm(itemValue)}>
           <Picker.Item label="am" value="am" />
           <Picker.Item label="pm" value="pm" />
         </Picker>
