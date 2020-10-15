@@ -6,6 +6,10 @@ import { Picker } from "@react-native-community/picker";
 import { styles } from "./styles";
 
 export const AddItems = () => {
+  const [name, setName] = useState("");
+  const [link, setLink] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
   const [timeIsAmOrPm, setTimeIsAmOrPm] = useState("am");
   const [selectedCategory, setSelectedCategory] = useState("MEP PREFACE");
 
@@ -26,14 +30,24 @@ export const AddItems = () => {
       <Text style={styles.text}>Time:</Text>
       <View style={styles.textInputContainer}>
         <TextInput style={styles.textInput} />
-        <Picker style={styles.timePicker} selectedValue={timeIsAmOrPm} onValueChange={(itemValue, itemIndex) => setTimeIsAmOrPm(itemValue)}>
+        <Picker
+          style={styles.timePicker}
+          selectedValue={timeIsAmOrPm}
+          onValueChange={(itemValue, itemIndex) => setTimeIsAmOrPm(itemValue)}
+        >
           <Picker.Item label="am" value="am" />
           <Picker.Item label="pm" value="pm" />
         </Picker>
       </View>
       <Text style={styles.text}>Category:</Text>
       <View style={styles.textInputContainer}>
-        <Picker style={styles.categoryPicker} selectedValue={selectedCategory} onValueChange={(itemValue, itemIndex) => setSelectedCategory(itemValue)}>
+        <Picker
+          style={styles.categoryPicker}
+          selectedValue={selectedCategory}
+          onValueChange={(itemValue, itemIndex) =>
+            setSelectedCategory(itemValue)
+          }
+        >
           <Picker.Item label="MEP PREFACE" value="MEP PREFACE" />
           <Picker.Item label="WiE LC Events" value="WiE LC Events" />
           <Picker.Item label="DOI Events" value="DOI Events" />
