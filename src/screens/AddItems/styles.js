@@ -28,15 +28,11 @@ export const styles = StyleSheet.create({
   },
   timePicker: {
     marginTop: 5,
-    borderWidth: 1,
-    borderColor: "black",
     height: 40,
     width: 100,
   },
   categoryPicker: {
     marginBottom: 5,
-    borderWidth: 1,
-    borderColor: "black",
     height: 40,
     width: 175,
   },
