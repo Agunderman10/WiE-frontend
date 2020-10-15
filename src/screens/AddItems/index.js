@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { TextInput } from "react-native-gesture-handler";
+import { View, Text, Button } from "react-native";
+import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 
 import { styles } from "./styles";
 
@@ -24,6 +24,8 @@ export const AddItems = () => {
         <TextInput style={styles.textInput} />
       </View>
       <Text style={styles.text}>Category:</Text>
+
+      <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>Submit Item</Text></TouchableOpacity>
     </View>
   );
 };
