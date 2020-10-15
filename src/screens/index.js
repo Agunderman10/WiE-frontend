@@ -56,7 +56,15 @@ function HomeStack() {
           },
         }}
       />
-      <Stack.Screen name="Add Items" component={AddItems} options={{headerStyle: {backgroundColor: "red"}, headerTintColor: "white", headerTitleStyle: {fontWeight: "bold", fontSize: 23}}}/>
+      <Stack.Screen
+        name="Add Items"
+        component={AddItems}
+        options={{
+          headerStyle: { backgroundColor: "red" },
+          headerTintColor: "white",
+          headerTitleStyle: { fontWeight: "bold", fontSize: 23 },
+        }}
+      />
       <Stack.Screen
         name="Individual Event"
         component={IndividualEvent}
