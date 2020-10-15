@@ -7,6 +7,8 @@ import { styles } from "./styles";
 
 export const AddItems = () => {
   const [timeIsAmOrPm, setTimeIsAmOrPm] = useState("am");
+  const [selectedCategory, setSelectedCategory] = useState("MEP PREFACE");
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Event or Study Group Name:</Text>
@@ -31,7 +33,7 @@ export const AddItems = () => {
       </View>
       <Text style={styles.text}>Category:</Text>
       <View style={styles.textInputContainer}>
-        <Picker style={styles.categoryPicker} selectedValue={timeIsAmOrPm}>
+        <Picker style={styles.categoryPicker} selectedValue={selectedCategory} onValueChange={(itemValue, itemIndex) => setSelectedCategory(itemValue)}>
           <Picker.Item label="MEP PREFACE" value="MEP PREFACE" />
           <Picker.Item label="DOI Events" value="DOI Events" />
         </Picker>
