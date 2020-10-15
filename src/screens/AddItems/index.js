@@ -25,7 +25,9 @@ export const AddItems = () => {
       </View>
       <Text style={styles.text}>Category:</Text>
 
-      <TouchableOpacity style={styles.button}><Text style={styles.buttonText}>Submit Item</Text></TouchableOpacity>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Submit Item</Text>
+      </TouchableOpacity>
     </View>
   );
 };
