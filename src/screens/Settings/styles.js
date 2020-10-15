@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
     },
     itemText: {
         fontSize: 15,
+        color: "black",
     },
     versionNumber: {
         alignSelf: "center",

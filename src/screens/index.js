@@ -33,7 +33,7 @@ function HomeStack() {
             <Button
               onPress={() => {
                 console.log("pressed here");
-                navigation.navigate("Settings");
+                navigation.navigate("Settings", { navigation });
               }}
               title="Menu"
               color="black"
