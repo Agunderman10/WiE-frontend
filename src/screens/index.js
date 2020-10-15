@@ -8,6 +8,8 @@ import { Resources } from "./Resources/index";
 import { StudyGroups } from "./StudyGroups/index";
 import { FAQ } from "./FAQ/index";
 import { IndividualEvent } from "./IndividualEvent";
+import { Settings } from "./Settings/index";
+import { Button } from "react-native";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -18,7 +20,7 @@ function HomeStack() {
       <Stack.Screen
         name="Home"
         component={Home}
-        options={{
+        options={({ navigation }) => ({
           headerStyle: {
             backgroundColor: "red",
           },
@@ -27,8 +29,19 @@ function HomeStack() {
             fontWeight: "bold",
             fontSize: 23,
           },
-        }}
+          headerRight: () => (
+            <Button
+              onPress={() => {
+                console.log("pressed here");
+                navigation.navigate("Settings");
+              }}
+              title="Menu"
+              color="black"
+            />
+          ),
+        })}
       />
+      <Stack.Screen name="Settings" component={Settings} />
       <Stack.Screen
         name="Individual Event"
         component={IndividualEvent}
