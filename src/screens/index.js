@@ -41,7 +41,15 @@ function HomeStack() {
           ),
         })}
       />
-      <Stack.Screen name="Settings" component={Settings} />
+      <Stack.Screen name="Settings" component={Settings} options={{headerStyle: {
+        backgroundColor: "red",
+      },
+      headerTintColor: "white",
+      headerTitleStyle: {
+        fontWeight: "bold",
+        fontSize: 23,
+      }
+    }} />
       <Stack.Screen
         name="Individual Event"
         component={IndividualEvent}
