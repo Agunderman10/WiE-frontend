@@ -10,6 +10,7 @@ import { FAQ } from "./FAQ/index";
 import { IndividualEvent } from "./IndividualEvent";
 import { Settings } from "./Settings/index";
 import { Button } from "react-native";
+import { AddItems } from "./AddItems";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -55,6 +56,7 @@ function HomeStack() {
           },
         }}
       />
+      <Stack.Screen name="Add Items" component={AddItems} options={{headerStyle: {backgroundColor: "red"}, headerTintColor: "white", headerTitleStyle: {fontWeight: "bold", fontSize: 23}}}/>
       <Stack.Screen
         name="Individual Event"
         component={IndividualEvent}
