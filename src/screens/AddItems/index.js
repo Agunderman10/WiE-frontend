@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, Button } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import { Picker } from "@react-native-community/picker";
 
 import { styles } from "./styles";
 
 export const AddItems = () => {
+  const [timeIsAmOrPm, setTimeIsAmOrPm] = useState("am");
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Event or Study Group Name:</Text>
@@ -22,6 +24,10 @@ export const AddItems = () => {
       <Text style={styles.text}>Time:</Text>
       <View style={styles.textInputContainer}>
         <TextInput style={styles.textInput} />
+        <Picker style={styles.picker} selectedValue={timeIsAmOrPm}>
+          <Picker.Item label="am" value="am" />
+          <Picker.Item label="pm" value="pm" />
+        </Picker>
       </View>
       <Text style={styles.text}>Category:</Text>
 

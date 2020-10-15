@@ -26,6 +26,12 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "black",
     },
+    picker: {
+        borderWidth: 1,
+        borderColor: "black",
+        height: 40,
+        width: 100,
+    },
     button: {
         marginTop: 5,
         backgroundColor: "red",
