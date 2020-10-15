@@ -17,19 +17,19 @@ export const AddItems = () => {
     <View style={styles.container}>
       <Text style={styles.text}>Event or Study Group Name:</Text>
       <View style={styles.textInputContainer}>
-        <TextInput style={styles.textInput} />
+        <TextInput style={styles.textInput} onChangeText={(newValue) => {setName(newValue)}} />
       </View>
       <Text style={styles.text}>Zoom Link:</Text>
       <View style={styles.textInputContainer}>
-        <TextInput style={styles.textInput} />
+        <TextInput style={styles.textInput} onChangeText={(newValue) => {setLink(newValue)}} />
       </View>
       <Text style={styles.text}>Date:</Text>
       <View style={styles.textInputContainer}>
-        <TextInput style={styles.textInput} />
+        <TextInput style={styles.textInput} onChangeText={(newValue) => {setDate(newValue)}} />
       </View>
       <Text style={styles.text}>Time:</Text>
       <View style={styles.textInputContainer}>
-        <TextInput style={styles.textInput} />
+        <TextInput style={styles.textInput} onChangeText={(newValue) => {setTime(newValue)}} />
         <Picker
           style={styles.timePicker}
           selectedValue={timeIsAmOrPm}
