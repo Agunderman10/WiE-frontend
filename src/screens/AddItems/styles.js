@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 10,
         width: "85%",
-        height: 50,
+        height: 40,
     },
     text: {
         marginTop: 8,
@@ -26,11 +26,19 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "black",
     },
-    picker: {
+    timePicker: {
+        marginTop: 5,
         borderWidth: 1,
         borderColor: "black",
         height: 40,
         width: 100,
+    },
+    categoryPicker: {
+        marginBottom: 5,
+        borderWidth: 1,
+        borderColor: "black",
+        height: 40,
+        width: 175,
     },
     button: {
         marginTop: 5,

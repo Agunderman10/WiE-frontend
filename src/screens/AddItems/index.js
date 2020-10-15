@@ -24,12 +24,18 @@ export const AddItems = () => {
       <Text style={styles.text}>Time:</Text>
       <View style={styles.textInputContainer}>
         <TextInput style={styles.textInput} />
-        <Picker style={styles.picker} selectedValue={timeIsAmOrPm}>
+        <Picker style={styles.timePicker} selectedValue={timeIsAmOrPm}>
           <Picker.Item label="am" value="am" />
           <Picker.Item label="pm" value="pm" />
         </Picker>
       </View>
       <Text style={styles.text}>Category:</Text>
+      <View style={styles.textInputContainer}>
+        <Picker style={styles.categoryPicker} selectedValue={timeIsAmOrPm}>
+          <Picker.Item label="MEP PREFACE" value="MEP PREFACE" />
+          <Picker.Item label="DOI Events" value="DOI Events" />
+        </Picker>
+      </View>
 
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Submit Item</Text>
