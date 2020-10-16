@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, Button, Alert } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { Picker } from "@react-native-community/picker";
 import { postEvent } from "./../../api/EventsAPI";
@@ -21,7 +21,13 @@ export const AddItems = () => {
     setLoading(true);
 
     // if selectedCategory is a study group or event
-    if (
+    if(checkIfAnyInputsAreEmpty()) {
+      setTimeout(() => {
+        Alert.alert('Error', 'One or more required pieces of information are blank. Please fill in all of the text boxes.');
+        setLoading(false);
+      }, 2000);
+    }
+    else if (
       selectedCategory === "MEP PREFACE" ||
       selectedCategory === "WiE LC Events" ||
       selectedCategory === "DOI Events"
@@ -29,6 +35,7 @@ export const AddItems = () => {
       setTimeout(() => {
         postEvent(name, link, date, time, timeIsAmOrPm, selectedCategory);
         clearAllInputs();
+        Alert.alert('Success', 'Your new item was added!');
         setLoading(false);
       }, 2000);
     } else {
@@ -48,6 +55,15 @@ export const AddItems = () => {
     setTimeIsAmOrPm("am");
     setSelectedCategory("MEP PREFACE");
   };
+
+  const checkIfAnyInputsAreEmpty = () => {
+    if(!name.trim() || !link.trim() || !date.trim() || !time.trim()) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 
   return (
     <View style={styles.container}>
