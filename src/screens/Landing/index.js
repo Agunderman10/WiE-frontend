@@ -77,11 +77,11 @@ export const Landing = () => {
             <TouchableOpacity onPress={signIn} style={styles.loginButton}>
               <Text>Sign In</Text>
             </TouchableOpacity>
-            <View style={styles.signUpLabel}>
+            {/*<View style={styles.signUpLabel}>
               <Text onPress={openSignUp} style={styles.signUpText}>
                 Don't have an account? Sign up
               </Text>
-            </View>
+  </View>*/}
           </View>
         </ImageBackground>
       </Modal>
