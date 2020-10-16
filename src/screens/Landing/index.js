@@ -9,6 +9,7 @@ import {
   OpaqueColorValue,
   ImageBackground,
   Alert,
+  ActivityIndicator,
 } from "react-native";
 import { AsyncStorage } from "@react-native-community/async-storage";
 
@@ -23,18 +24,24 @@ export const Landing = () => {
   const [signUpModalVisible, setSignUpModalVisible] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const signIn = async () => {
-    // sign in logic
-    var isSuccess = await checkLoginCredentials(email, password);
+    setLoading(true);
+    setTimeout(async () => {
+      setLoading(false);
+      var isSuccess = await checkLoginCredentials(email, password);
 
-    if(isSuccess) {
-      setSignUpModalVisible(false);
-      setSignInModalVisible(false);
-    }
-    else {
-      Alert.alert('Error', 'There was an issue with your sign in. Please try again.')
-    }
+      if (isSuccess) {
+        setSignUpModalVisible(false);
+        setSignInModalVisible(false);
+      } else {
+        Alert.alert(
+          "Error",
+          "There was an issue with your sign in. Please try again."
+        );
+      }
+    }, 2000);
   };
 
   const openSignUp = () => {
@@ -49,12 +56,17 @@ export const Landing = () => {
           style={styles.backgroundImage}
           source={require("../../../images/Oval.jpg")}
         >
+          <ActivityIndicator animating={loading} size="large" color="red" />
           <View style={styles.container}>
             <Image
               style={styles.frontImage}
               source={require("../../../images/ohiostatelogo.jpg")}
             />
-            <TextInput placeholder="OSU Email..." onChangeText={(userEmail) => setEmail(userEmail)} style={styles.textInput} />
+            <TextInput
+              placeholder="OSU Email..."
+              onChangeText={(userEmail) => setEmail(userEmail)}
+              style={styles.textInput}
+            />
             <TextInput
               placeholder="Password..."
               onChangeText={(userPassword) => setPassword(userPassword)}
