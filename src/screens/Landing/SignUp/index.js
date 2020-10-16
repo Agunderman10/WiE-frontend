@@ -8,16 +8,35 @@ import {
   Image,
   ImageBackground,
 } from "react-native";
+import { Loader } from "./../../../components/Loader/index";
 
 import { styles } from "./../styles";
 
 import { Screens } from "../../index"; // will remove this later
 
-export const SignUp = ({ setSignUpModalVisible, signUpModalVisible, setSignInModalVisible }) => {
+export const SignUp = ({
+  setSignUpModalVisible,
+  signUpModalVisible,
+  setSignInModalVisible,
+}) => {
+  const [loading, setLoading] = useState(false);
+
   const signUp = () => {
-    // sign up logic
-    setSignUpModalVisible(false);
-    setSignInModalVisible(false);
+    setLoading(true);
+    setTimeout(async () => {
+      setLoading(false);
+      /*var isSuccess = await checkLoginCredentials(email, password);
+
+      if (isSuccess) {
+        setSignUpModalVisible(false);
+        setSignInModalVisible(false);
+      } else {
+        Alert.alert(
+          "Error",
+          "There was an issue with your sign up. Please try again."
+        );
+      }*/
+    }, 2000);
   };
 
   const openSignIn = () => {
@@ -32,6 +51,7 @@ export const SignUp = ({ setSignUpModalVisible, signUpModalVisible, setSignInMod
           style={styles.backgroundImage}
           source={require("../../../../images/Oval.jpg")}
         >
+          <Loader isLoading={loading} />
           <View style={styles.container}>
             <Image
               style={styles.frontImage}
