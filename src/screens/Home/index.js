@@ -33,7 +33,7 @@ export function Home({ navigation }) {
               label: data[i].label,
               image: "./../../../images/Oval.jpg",
             });
-          } else {
+          } else if(data[i].type === "WiE LC Events") {
             wieLcEventsRef.current.push({
               label: data[i].label,
               image: "./../../../images/Oval.jpg",
