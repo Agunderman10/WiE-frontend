@@ -4,6 +4,7 @@ import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { Picker } from "@react-native-community/picker";
 import { postEvent } from "./../../api/EventsAPI";
 import { postStudyGroup } from "./../../api/StudyGroupsAPI";
+import { Loader } from "./../../components/Loader/index";
 
 import { styles } from "./styles";
 
@@ -14,20 +15,33 @@ export const AddItems = () => {
   const [time, setTime] = useState("");
   const [timeIsAmOrPm, setTimeIsAmOrPm] = useState("am");
   const [selectedCategory, setSelectedCategory] = useState("MEP PREFACE");
+  const [loading, setLoading] = useState(false);
 
   const submitItem = () => {
+    setLoading(true);
+
     // if selectedCategory is a study group or event
-    if(selectedCategory === "MEP PREFACE" || selectedCategory === "WiE LC Events" || selectedCategory === "DOI Events") {
-      postEvent(name, link, date, time, timeIsAmOrPm, selectedCategory);
-    }
-    else {
-      postStudyGroup(name, link, date, time, timeIsAmOrPm, selectedCategory);
+    if (
+      selectedCategory === "MEP PREFACE" ||
+      selectedCategory === "WiE LC Events" ||
+      selectedCategory === "DOI Events"
+    ) {
+      setTimeout(() => {
+        postEvent(name, link, date, time, timeIsAmOrPm, selectedCategory);
+        setLoading(false);
+      }, 2000);
+    } else {
+      setTimeout(() => {
+        postStudyGroup(name, link, date, time, timeIsAmOrPm, selectedCategory);
+        setLoading(false);
+      }, 2000);
     }
     console.log(name, link, date, time, timeIsAmOrPm, selectedCategory);
-  }
+  };
 
   return (
     <View style={styles.container}>
+      <Loader isLoading={loading} />
       <Text style={styles.text}>Event or Study Group Name:</Text>
       <View style={styles.textInputContainer}>
         <TextInput
@@ -93,10 +107,7 @@ export const AddItems = () => {
         </Picker>
       </View>
 
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => submitItem()}
-      >
+      <TouchableOpacity style={styles.button} onPress={() => submitItem()}>
         <Text style={styles.buttonText}>Submit Item</Text>
       </TouchableOpacity>
     </View>
