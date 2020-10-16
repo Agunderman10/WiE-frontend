@@ -57,7 +57,7 @@ export const Landing = () => {
           style={styles.backgroundImage}
           source={require("../../../images/Oval.jpg")}
         >
-          <Loader />
+          <Loader isLoading={loading} />
           <View style={styles.container}>
             <Image
               style={styles.frontImage}
