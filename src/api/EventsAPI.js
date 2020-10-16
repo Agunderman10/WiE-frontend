@@ -11,3 +11,21 @@ export const getEvents = async () => {
       console.log(e);
     });
 };
+
+export const postEvent = async (name, link, date, time, timeIsAmOrPm, selectedCategory) => {
+  return await axios
+    .post(url + "events", {
+      name: name,
+      link: link,
+      date: date,
+      time: time,
+      timeIsAmOrPm: timeIsAmOrPm,
+      selectedCategory: selectedCategory
+    })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};

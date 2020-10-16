@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Button } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { Picker } from "@react-native-community/picker";
+import { postEvent } from "./../../api/EventsAPI";
 
 import { styles } from "./styles";
 
@@ -17,19 +18,39 @@ export const AddItems = () => {
     <View style={styles.container}>
       <Text style={styles.text}>Event or Study Group Name:</Text>
       <View style={styles.textInputContainer}>
-        <TextInput style={styles.textInput} onChangeText={(newValue) => {setName(newValue)}} />
+        <TextInput
+          style={styles.textInput}
+          onChangeText={(newValue) => {
+            setName(newValue);
+          }}
+        />
       </View>
       <Text style={styles.text}>Zoom Link:</Text>
       <View style={styles.textInputContainer}>
-        <TextInput style={styles.textInput} onChangeText={(newValue) => {setLink(newValue)}} />
+        <TextInput
+          style={styles.textInput}
+          onChangeText={(newValue) => {
+            setLink(newValue);
+          }}
+        />
       </View>
       <Text style={styles.text}>Date:</Text>
       <View style={styles.textInputContainer}>
-        <TextInput style={styles.textInput} onChangeText={(newValue) => {setDate(newValue)}} />
+        <TextInput
+          style={styles.textInput}
+          onChangeText={(newValue) => {
+            setDate(newValue);
+          }}
+        />
       </View>
       <Text style={styles.text}>Time:</Text>
       <View style={styles.textInputContainer}>
-        <TextInput style={styles.textInput} onChangeText={(newValue) => {setTime(newValue)}} />
+        <TextInput
+          style={styles.textInput}
+          onChangeText={(newValue) => {
+            setTime(newValue);
+          }}
+        />
         <Picker
           style={styles.timePicker}
           selectedValue={timeIsAmOrPm}
@@ -60,7 +81,13 @@ export const AddItems = () => {
         </Picker>
       </View>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          postEvent(name, link, date, time, timeIsAmOrPm, selectedCategory);
+          console.log(name, link, date, time, timeIsAmOrPm, selectedCategory);
+        }}
+      >
         <Text style={styles.buttonText}>Submit Item</Text>
       </TouchableOpacity>
     </View>
