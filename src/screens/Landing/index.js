@@ -18,6 +18,7 @@ import { styles } from "./styles";
 import { checkLoginCredentials } from "./../../api/UsersAPI";
 import { url } from "./../../constants/app";
 import { SignUp } from "./SignUp";
+import { Loader } from "./../../components/Loader/index";
 
 export const Landing = () => {
   const [signInModalVisible, setSignInModalVisible] = useState(true);
@@ -56,7 +57,7 @@ export const Landing = () => {
           style={styles.backgroundImage}
           source={require("../../../images/Oval.jpg")}
         >
-          <ActivityIndicator animating={loading} size="large" color="red" />
+          <Loader />
           <View style={styles.container}>
             <Image
               style={styles.frontImage}
