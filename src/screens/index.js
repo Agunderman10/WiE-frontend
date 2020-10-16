@@ -118,7 +118,7 @@ export function Screens() {
       <Tab.Screen
         name="Study Groups"
         component={StudyGroups}
-        options={{
+        options={({ navigation }) => ({
           tabBarLabel: "Study Groups",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
@@ -127,7 +127,7 @@ export function Screens() {
               size={size}
             />
           ),
-        }}
+        })}
       />
       <Tab.Screen
         name="FAQ"
