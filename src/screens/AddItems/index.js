@@ -14,6 +14,17 @@ export const AddItems = () => {
   const [timeIsAmOrPm, setTimeIsAmOrPm] = useState("am");
   const [selectedCategory, setSelectedCategory] = useState("MEP PREFACE");
 
+  const submitItem = () => {
+    // if selectedCategory is a study group or event
+    if(selectedCategory === "MEP PREFACE" || selectedCategory === "WiE LC Events" || selectedCategory === "DOI Events") {
+      postEvent(name, link, date, time, timeIsAmOrPm, selectedCategory);
+    }
+    else {
+
+    }
+    console.log(name, link, date, time, timeIsAmOrPm, selectedCategory);
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Event or Study Group Name:</Text>
@@ -83,10 +94,7 @@ export const AddItems = () => {
 
       <TouchableOpacity
         style={styles.button}
-        onPress={() => {
-          postEvent(name, link, date, time, timeIsAmOrPm, selectedCategory);
-          console.log(name, link, date, time, timeIsAmOrPm, selectedCategory);
-        }}
+        onPress={() => submitItem()}
       >
         <Text style={styles.buttonText}>Submit Item</Text>
       </TouchableOpacity>
