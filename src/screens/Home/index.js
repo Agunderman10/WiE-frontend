@@ -26,16 +26,28 @@ export function Home({ navigation }) {
           if (data[i].type === "MEP PREFACE") {
             osuEventsRef.current.push({
               label: data[i].label,
+              link: data[i].link,
+              date: data[i].date,
+              time: data[i].time,
+              timeIsAmOrPm: data[i].timeIsAmOrPm,
               image: "./../../../images/Oval.jpg",
             });
           } else if (data[i].type === "DOI Events") {
             doiEventsRef.current.push({
               label: data[i].label,
+              link: data[i].link,
+              date: data[i].date,
+              time: data[i].time,
+              timeIsAmOrPm: data[i].timeIsAmOrPm,
               image: "./../../../images/Oval.jpg",
             });
-          } else if(data[i].type === "WiE LC Events") {
+          } else if (data[i].type === "WiE LC Events") {
             wieLcEventsRef.current.push({
               label: data[i].label,
+              link: data[i].link,
+              date: data[i].date,
+              time: data[i].time,
+              timeIsAmOrPm: data[i].timeIsAmOrPm,
               image: "./../../../images/Oval.jpg",
             });
           }
@@ -68,7 +80,17 @@ export function Home({ navigation }) {
   */
 
   const renderItem = ({ item }) => {
-    return <Card image={item.image} label={item.label} navigation={navigation}/>;
+    return (
+      <Card
+        image={item.image}
+        label={item.label}
+        location={item.link}
+        date={item.date}
+        time={item.time}
+        timeIsAmOrPm={item.timeIsAmOrPm}
+        navigation={navigation}
+      />
+    );
   };
 
   return (

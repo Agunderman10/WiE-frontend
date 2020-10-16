@@ -4,10 +4,22 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { styles } from "./styles";
 
-export const Card = ({ image, label, navigation }) => {
+export const Card = ({ image, label, location, date, time, timeIsAmOrPm, navigation }) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate("Individual Event", {image, label, navigation})}>
+      <TouchableOpacity
+        onPress={() =>
+          navigation.navigate("Individual Event", {
+            image,
+            label,
+            location,
+            date,
+            time,
+            timeIsAmOrPm,
+            navigation,
+          })
+        }
+      >
         <ImageBackground
           style={styles.cardBackgroundImage}
           imageStyle={{ borderRadius: 15 }}
