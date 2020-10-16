@@ -28,6 +28,7 @@ export const AddItems = () => {
     ) {
       setTimeout(() => {
         postEvent(name, link, date, time, timeIsAmOrPm, selectedCategory);
+        clearAllInputs();
         setLoading(false);
       }, 2000);
     } else {
@@ -39,12 +40,22 @@ export const AddItems = () => {
     console.log(name, link, date, time, timeIsAmOrPm, selectedCategory);
   };
 
+  const clearAllInputs = () => {
+    setName("");
+    setLink("");
+    setDate("");
+    setTime("");
+    setTimeIsAmOrPm("am");
+    setSelectedCategory("MEP PREFACE");
+  };
+
   return (
     <View style={styles.container}>
       <Loader isLoading={loading} />
       <Text style={styles.text}>Event or Study Group Name:</Text>
       <View style={styles.textInputContainer}>
         <TextInput
+          value={name}
           style={styles.textInput}
           onChangeText={(newValue) => {
             setName(newValue);
@@ -54,6 +65,7 @@ export const AddItems = () => {
       <Text style={styles.text}>Zoom Link:</Text>
       <View style={styles.textInputContainer}>
         <TextInput
+          value={link}
           style={styles.textInput}
           onChangeText={(newValue) => {
             setLink(newValue);
@@ -63,6 +75,7 @@ export const AddItems = () => {
       <Text style={styles.text}>Date:</Text>
       <View style={styles.textInputContainer}>
         <TextInput
+          value={date}
           style={styles.textInput}
           onChangeText={(newValue) => {
             setDate(newValue);
@@ -72,6 +85,7 @@ export const AddItems = () => {
       <Text style={styles.text}>Time:</Text>
       <View style={styles.textInputContainer}>
         <TextInput
+          value={time}
           style={styles.textInput}
           onChangeText={(newValue) => {
             setTime(newValue);
