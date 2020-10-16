@@ -24,7 +24,7 @@ export const Landing = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const signIn = async () => {
+  const signIn = () => {
     setLoading(true);
     setTimeout(async () => {
       setLoading(false);
