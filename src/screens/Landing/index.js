@@ -6,17 +6,14 @@ import {
   TouchableOpacity,
   Modal,
   Image,
-  OpaqueColorValue,
   ImageBackground,
   Alert,
-  ActivityIndicator,
 } from "react-native";
 import { AsyncStorage } from "@react-native-community/async-storage";
 
 import { styles } from "./styles";
 
 import { checkLoginCredentials } from "./../../api/UsersAPI";
-import { url } from "./../../constants/app";
 import { SignUp } from "./SignUp";
 import { Loader } from "./../../components/Loader/index";
 
