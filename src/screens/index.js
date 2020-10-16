@@ -2,6 +2,7 @@ import * as React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 import { Home } from "./Home/index";
 import { Resources } from "./Resources/index";
@@ -9,8 +10,9 @@ import { StudyGroups } from "./StudyGroups/index";
 import { FAQ } from "./FAQ/index";
 import { IndividualEvent } from "./IndividualEvent";
 import { Settings } from "./Settings/index";
-import { Button } from "react-native";
+import { Button, View } from "react-native";
 import { AddItems } from "./AddItems";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -31,14 +33,14 @@ function HomeStack() {
             fontSize: 23,
           },
           headerRight: () => (
-            <Button
+            <TouchableOpacity
               onPress={() => {
                 console.log("pressed here");
                 navigation.navigate("Settings", { navigation });
               }}
-              title="Menu"
-              color="black"
-            />
+            >
+              <MaterialCommunityIcons style={{ marginRight: 10 }} name="settings" size={26} color="white" />
+            </TouchableOpacity>
           ),
         })}
       />
