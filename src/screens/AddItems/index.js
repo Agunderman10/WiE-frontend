@@ -3,6 +3,7 @@ import { View, Text, Button } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { Picker } from "@react-native-community/picker";
 import { postEvent } from "./../../api/EventsAPI";
+import { postStudyGroup } from "./../../api/StudyGroupsAPI";
 
 import { styles } from "./styles";
 
@@ -20,7 +21,7 @@ export const AddItems = () => {
       postEvent(name, link, date, time, timeIsAmOrPm, selectedCategory);
     }
     else {
-
+      postStudyGroup(name, link, date, time, timeIsAmOrPm, selectedCategory);
     }
     console.log(name, link, date, time, timeIsAmOrPm, selectedCategory);
   }
