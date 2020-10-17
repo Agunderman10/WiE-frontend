@@ -14,6 +14,7 @@ import { Button, View } from "react-native";
 import { AddItems } from "./AddItems";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { AddRequest } from "./AddRequest";
+import { PendingRequests } from "./PendingRequests";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -82,6 +83,7 @@ function HomeStack() {
           headerTitleStyle: { fontWeight: "bold", fontSize: 23 },
         }}
       />
+      <Stack.Screen name="Pending Requests" component={PendingRequests} />
       <Stack.Screen
         name="Individual Event"
         component={IndividualEvent}

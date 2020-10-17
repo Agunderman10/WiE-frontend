@@ -24,6 +24,15 @@ export const Settings = ({ navigation }) => {
       >
         <Text style={styles.itemText}>Make Study Group Request</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.itemContainer}
+        onPress={() => {
+          navigation.navigate("Pending Requests");
+        }}
+      >
+        <Text style={styles.itemText}>Pending Study Group Requests</Text>
+      </TouchableOpacity>
       
       <Text style={styles.versionNumber}>Version: {CURRENT_APP_VERSION}</Text>
     </View>
