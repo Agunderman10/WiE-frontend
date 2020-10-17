@@ -68,7 +68,11 @@ function HomeStack() {
           headerTitleStyle: { fontWeight: "bold", fontSize: 23 },
         }}
       />
-      <Stack.Screen name="Add Request" component={AddRequest} />
+      <Stack.Screen name="Add Request" component={AddRequest} options={{
+        headerStyle: { backgroundColor: "red" },
+        headerTintColor: "white",
+        headerTitleStyle: { fontWeight: "bold", fontSize: 23 },
+      }}/>
       <Stack.Screen
         name="Individual Event"
         component={IndividualEvent}
