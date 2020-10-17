@@ -83,11 +83,15 @@ function HomeStack() {
           headerTitleStyle: { fontWeight: "bold", fontSize: 23 },
         }}
       />
-      <Stack.Screen name="Pending Requests" component={PendingRequests} options={{
-        headerStyle: { backgroundColor: "red" },
-        headerTintColor: "white",
-        headerTitleStyle: { fontWeight: "bold", fontSize: 23 },
-      }}/>
+      <Stack.Screen
+        name="Pending Requests"
+        component={PendingRequests}
+        options={{
+          headerStyle: { backgroundColor: "red" },
+          headerTintColor: "white",
+          headerTitleStyle: { fontWeight: "bold", fontSize: 23 },
+        }}
+      />
       <Stack.Screen
         name="Individual Event"
         component={IndividualEvent}
