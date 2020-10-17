@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { View, Text, Button, Alert } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { Picker } from "@react-native-community/picker";
-import { postEvent } from "./../../api/EventsAPI";
-import { postStudyGroup } from "./../../api/StudyGroupsAPI";
+import { postRequest } from "./../../api/RequestsAPI";
 import { Loader } from "./../../components/Loader/index";
 
 import { styles } from "./styles";
@@ -29,20 +28,11 @@ export const AddRequest = () => {
         );
         setLoading(false);
       }, 2000);
-    } else if (
-      selectedCategory === "MEP PREFACE" ||
-      selectedCategory === "WiE LC Events" ||
-      selectedCategory === "DOI Events"
-    ) {
-      setTimeout(() => {
-        postEvent(name, link, date, time, timeIsAmOrPm, selectedCategory);
-        clearAllInputs();
-        Alert.alert("Success", "Your new item was added!");
-        setLoading(false);
-      }, 2000);
     } else {
       setTimeout(() => {
-        postStudyGroup(name, link, date, time, timeIsAmOrPm, selectedCategory);
+        postRequest(name, link, date, time, timeIsAmOrPm, selectedCategory);
+        clearAllInputs();
+        Alert.alert("Success", "Your new item was added!");
         setLoading(false);
       }, 2000);
     }
