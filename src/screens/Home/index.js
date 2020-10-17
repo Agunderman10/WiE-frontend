@@ -11,7 +11,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 export function Home({ navigation }) {
   const osuEventsRef = useRef([]);
   const doiEventsRef = useRef([]);
-  const wieLcEventsRef = useRef([]);
+  const empowhermentLcEventsRef = useRef([]);
 
   useEffect(() => {
     getEventsFromAPI();
@@ -23,7 +23,7 @@ export function Home({ navigation }) {
         console.log(data);
         // organize data into arrays based on type for ui display
         for (var i = 0; i < data.length; i++) {
-          if (data[i].type === "MEP PREFACE") {
+          if (data[i].type === "PREFACE") {
             osuEventsRef.current.push({
               label: data[i].label,
               link: data[i].link,
@@ -41,8 +41,8 @@ export function Home({ navigation }) {
               timeIsAmOrPm: data[i].timeIsAmOrPm,
               image: "./../../../images/Oval.jpg",
             });
-          } else if (data[i].type === "WiE LC Events") {
-            wieLcEventsRef.current.push({
+          } else if (data[i].type === "EmpowHERment LC Events") {
+            empowhermentLcEventsRef.current.push({
               label: data[i].label,
               link: data[i].link,
               date: data[i].date,
@@ -96,17 +96,6 @@ export function Home({ navigation }) {
   return (
     <View>
       {/*<Header title={"Home"} />*/}
-      <ListCard>
-        <Text style={styles.eventTypeHeader}>MEP PREFACE</Text>
-        <FlatList
-          style={{ height: "20%" }}
-          horizontal={true}
-          data={osuEventsRef.current}
-          extraData={osuEventsRef.current}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.label}
-        />
-      </ListCard>
 
       <ListCard>
         <Text style={styles.eventTypeHeader}>DOI Events</Text>
@@ -121,12 +110,24 @@ export function Home({ navigation }) {
       </ListCard>
 
       <ListCard>
-        <Text style={styles.eventTypeHeader}>WiE LC Events</Text>
+        <Text style={styles.eventTypeHeader}>PREFACE</Text>
         <FlatList
           style={{ height: "20%" }}
           horizontal={true}
-          data={wieLcEventsRef.current}
-          extraData={wieLcEventsRef.current}
+          data={osuEventsRef.current}
+          extraData={osuEventsRef.current}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.label}
+        />
+      </ListCard>
+
+      <ListCard>
+        <Text style={styles.eventTypeHeader}>EmpowHERment LC Events</Text>
+        <FlatList
+          style={{ height: "20%" }}
+          horizontal={true}
+          data={empowhermentLcEventsRef.current}
+          extraData={empowhermentLcEventsRef.current}
           renderItem={renderItem}
           keyExtractor={(item) => item.label}
         />
