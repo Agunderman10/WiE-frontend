@@ -1,8 +1,15 @@
 import axios from "axios";
 import { url } from "./../constants/app";
 
-export const getRequests = () => {
-
+export const getRequests = async () => {
+  return await axios
+    .get(url + "study-group-requests")
+    .then((res) => {
+      return res.data;
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 }
 
 export const postRequest = async (name, link, date, time, timeIsAmOrPm, selectedCategory) => {
