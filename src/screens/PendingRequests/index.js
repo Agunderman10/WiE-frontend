@@ -1,37 +1,26 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Button, Text, View } from "react-native";
-import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import {
+  FlatList,
+  RotationGestureHandler,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
+
 import { styles } from "./styles";
 
-export const PendingRequests = () => {
-  const DATA = [
-    {
-      image: "./../../../images/Oval.jpg",
-      label: "WiE Empowherment Session",
-      time: "2:00",
-    },
-    {
-      image: "./../../../images/Oval.jpg",
-      label: "WiE Mental Health Session",
-      time: "3:00",
-    },
-    {
-      image: "./../../../images/Oval.jpg",
-      label: "WiE Mental Session",
-      time: "4:00",
-    },
-    {
-      image: "./../../../images/Oval.jpg",
-      label: "WiE Session",
-      time: "1:00",
-    },
-  ];
+export const PendingRequests = ({ route }) => {
+  const { pendingRequests } = route.params;
 
   const renderItem = ({ item }) => {
     return (
       <View style={styles.itemContainer}>
         <Text style={styles.itemText}>{"Name: " + item.label}</Text>
-        <Text style={styles.itemText}>{"Time: " + item.time}</Text>
+        <Text style={styles.itemText}>{"Link: " + item.link}</Text>
+        <Text style={styles.itemText}>{"Date: " + item.date}</Text>
+        <Text style={styles.itemText}>
+          {"Time: " + item.time + item.timeIsAmOrPm}
+        </Text>
+        <Text style={styles.itemText}>{"Class: " + item.class}</Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.accept}>
             <Text style={styles.buttonText}>Accept</Text>
@@ -47,8 +36,8 @@ export const PendingRequests = () => {
   return (
     <View>
       <FlatList
-        data={DATA}
-        extraData={DATA}
+        data={pendingRequests}
+        extraData={pendingRequests}
         renderItem={renderItem}
         keyExtractor={(item) => item.label}
       />
