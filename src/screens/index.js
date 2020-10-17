@@ -40,7 +40,12 @@ function HomeStack() {
                 navigation.navigate("Settings", { navigation });
               }}
             >
-              <MaterialCommunityIcons style={{ marginRight: 10 }} name="settings" size={26} color="white" />
+              <MaterialCommunityIcons
+                style={{ marginRight: 10 }}
+                name="settings"
+                size={26}
+                color="white"
+              />
             </TouchableOpacity>
           ),
         })}
@@ -68,11 +73,15 @@ function HomeStack() {
           headerTitleStyle: { fontWeight: "bold", fontSize: 23 },
         }}
       />
-      <Stack.Screen name="Add Request" component={AddRequest} options={{
-        headerStyle: { backgroundColor: "red" },
-        headerTintColor: "white",
-        headerTitleStyle: { fontWeight: "bold", fontSize: 23 },
-      }}/>
+      <Stack.Screen
+        name="Add Request"
+        component={AddRequest}
+        options={{
+          headerStyle: { backgroundColor: "red" },
+          headerTintColor: "white",
+          headerTitleStyle: { fontWeight: "bold", fontSize: 23 },
+        }}
+      />
       <Stack.Screen
         name="Individual Event"
         component={IndividualEvent}
