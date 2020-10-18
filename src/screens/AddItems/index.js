@@ -95,7 +95,7 @@ export const AddItems = () => {
       <View style={styles.textInputContainer}>
         <TextInput
           value={date}
-          maxLength={45}
+          maxLength={10}
           style={styles.textInput}
           onChangeText={(newValue) => {
             setDate(newValue);
