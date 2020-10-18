@@ -6,6 +6,7 @@ import { Header } from "./../../components/Header/index";
 import { ListCard } from "./../../components/ListCard/index";
 import { getStudyGroups } from "./../../api/StudyGroupsAPI";
 import { styles } from "./styles";
+import { EmptyListNotification } from "../../components/EmptyListNotification";
 
 export function StudyGroups({ navigation }) {
   const fe1181Ref = useRef([]);
@@ -93,6 +94,7 @@ export function StudyGroups({ navigation }) {
             data={fe1181Ref.current}
             extraData={fe1181Ref.current}
             renderItem={renderItem}
+            ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}
           />
         </ListCard>
@@ -105,6 +107,7 @@ export function StudyGroups({ navigation }) {
             data={fehRef.current}
             extraData={fehRef.current}
             renderItem={renderItem}
+            ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}
           />
         </ListCard>
@@ -117,6 +120,7 @@ export function StudyGroups({ navigation }) {
             data={physics1250Ref.current}
             extraData={physics1250Ref.current}
             renderItem={renderItem}
+            ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}
           />
         </ListCard>
@@ -128,6 +132,7 @@ export function StudyGroups({ navigation }) {
             horizontal={true}
             data={DATA}
             renderItem={renderItem}
+            ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}
           />
         </ListCard>
@@ -139,6 +144,7 @@ export function StudyGroups({ navigation }) {
             horizontal={true}
             data={DATA}
             renderItem={renderItem}
+            ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}
           />
         </ListCard>
@@ -150,6 +156,7 @@ export function StudyGroups({ navigation }) {
             horizontal={true}
             data={DATA}
             renderItem={renderItem}
+            ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}
           />
         </ListCard>
