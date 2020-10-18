@@ -62,11 +62,13 @@ export const Landing = () => {
             />
             <TextInput
               placeholder="OSU Email..."
+              maxLength={45}
               onChangeText={(userEmail) => setEmail(userEmail)}
               style={styles.textInput}
             />
             <TextInput
               placeholder="Password..."
+              maxLength={45}
               onChangeText={(userPassword) => setPassword(userPassword)}
               secureTextEntry={true}
               style={styles.textInput}
