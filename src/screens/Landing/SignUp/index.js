@@ -59,19 +59,23 @@ export const SignUp = ({
             />
             <TextInput
               placeholder="OSU Email..."
+              maxLength={45}
               style={styles.signUpTextInput}
             />
             <TextInput
               placeholder="Full Name..."
+              maxLength={45}
               style={styles.signUpTextInput}
             />
             <TextInput
               placeholder="Password..."
+              maxLength={45}
               secureTextEntry={true}
               style={styles.signUpTextInput}
             />
             <TextInput
               placeholder="Confirm Password..."
+              maxLength={45}
               secureTextEntry={true}
               style={styles.signUpTextInput}
             />
