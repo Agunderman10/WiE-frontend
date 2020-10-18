@@ -64,7 +64,7 @@ export const postAcceptRequest = async (
 
 export const deleteDeclinedRequest = async (link) => {
   return await axios
-    .delete(url + "study-group-requests/decline", { link: link })
+    .delete(url + "study-group-requests/decline", { params: { link: link } })
     .then((res) => {
       return res.data;
     })
