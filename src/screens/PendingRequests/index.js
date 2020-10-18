@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Button, Text, View } from "react-native";
 import {
   FlatList,
@@ -11,9 +11,14 @@ import { styles } from "./styles";
 
 export const PendingRequests = ({ route }) => {
   const { pendingRequests } = route.params;
+  const [pendingRequestsData, setPendingRequestsData] = useState(pendingRequests);
 
   const acceptRequest = (label, link, date, time, timeIsAmOrPm, className) => {
       postAcceptRequest(label, link, date, time, timeIsAmOrPm, className);
+
+      // remove accepted request from pending list
+      const filteredData = pendingRequestsData.filter(item => item.link !== link);
+      setPendingRequestsData(filteredData);
   };
 
   const renderItem = ({ item }) => {
@@ -44,8 +49,8 @@ export const PendingRequests = ({ route }) => {
   return (
     <View>
       <FlatList
-        data={pendingRequests}
-        extraData={pendingRequests}
+        data={pendingRequestsData}
+        extraData={pendingRequestsData}
         renderItem={renderItem}
         keyExtractor={(item) => item.label}
       />
