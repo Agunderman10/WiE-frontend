@@ -5,7 +5,7 @@ import {
   RotationGestureHandler,
   TouchableOpacity,
 } from "react-native-gesture-handler";
-import { postAcceptRequest } from "./../../api/RequestsAPI";
+import { postAcceptRequest, deleteDeclinedRequest } from "./../../api/RequestsAPI";
 
 import { styles } from "./styles";
 
@@ -22,6 +22,9 @@ export const PendingRequests = ({ route }) => {
   };
 
   const declineRequest = (link) => {
+    deleteDeclinedRequest(link);
+
+    // remove declined request from pending list
     const filteredData = pendingRequestsData.filter(item => item.link !== link);
     setPendingRequestsData(filteredData);
   }

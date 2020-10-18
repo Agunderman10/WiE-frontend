@@ -61,3 +61,14 @@ export const postAcceptRequest = async (
       console.log(e);
     });
 };
+
+export const deleteDeclinedRequest = async (link) => {
+  return await axios
+    .delete(url + "study-group-requests/decline", { link: link })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
