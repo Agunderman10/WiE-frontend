@@ -73,6 +73,7 @@ export const AddItems = () => {
       <View style={styles.textInputContainer}>
         <TextInput
           value={name}
+          maxLength={45}
           style={styles.textInput}
           onChangeText={(newValue) => {
             setName(newValue);
@@ -83,6 +84,7 @@ export const AddItems = () => {
       <View style={styles.textInputContainer}>
         <TextInput
           value={link}
+          maxLength={100}
           style={styles.textInput}
           onChangeText={(newValue) => {
             setLink(newValue);
@@ -93,6 +95,7 @@ export const AddItems = () => {
       <View style={styles.textInputContainer}>
         <TextInput
           value={date}
+          maxLength={45}
           style={styles.textInput}
           onChangeText={(newValue) => {
             setDate(newValue);
@@ -103,6 +106,7 @@ export const AddItems = () => {
       <View style={styles.textInputContainer}>
         <TextInput
           value={time}
+          maxLength={5}
           style={styles.textInput}
           onChangeText={(newValue) => {
             setTime(newValue);
