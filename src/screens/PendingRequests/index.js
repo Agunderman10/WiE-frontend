@@ -21,6 +21,11 @@ export const PendingRequests = ({ route }) => {
       setPendingRequestsData(filteredData);
   };
 
+  const declineRequest = (link) => {
+    const filteredData = pendingRequestsData.filter(item => item.link !== link);
+    setPendingRequestsData(filteredData);
+  }
+
   const renderItem = ({ item }) => {
     return (
       <View style={styles.itemContainer}>
@@ -38,7 +43,7 @@ export const PendingRequests = ({ route }) => {
           >
             <Text style={styles.buttonText}>Accept</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.decline}>
+          <TouchableOpacity style={styles.decline} onPress={() => declineRequest(item.link)}>
             <Text style={styles.buttonText}>Decline</Text>
           </TouchableOpacity>
         </View>
