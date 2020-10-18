@@ -7,6 +7,7 @@ import { ListCard } from "./../../components/ListCard/index";
 import { getEvents } from "./../../api/EventsAPI";
 import { styles } from "./styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { EmptyListNotification } from "../../components/EmptyListNotification";
 
 export function Home({ navigation }) {
   const osuEventsRef = useRef([]);
@@ -105,6 +106,7 @@ export function Home({ navigation }) {
           data={doiEventsRef.current}
           extraData={doiEventsRef.current}
           renderItem={renderItem}
+          ListEmptyComponent={EmptyListNotification}
           keyExtractor={(item) => item.label}
         />
       </ListCard>
@@ -117,6 +119,7 @@ export function Home({ navigation }) {
           data={osuEventsRef.current}
           extraData={osuEventsRef.current}
           renderItem={renderItem}
+          ListEmptyComponent={EmptyListNotification}
           keyExtractor={(item) => item.label}
         />
       </ListCard>
@@ -129,6 +132,7 @@ export function Home({ navigation }) {
           data={empowhermentLcEventsRef.current}
           extraData={empowhermentLcEventsRef.current}
           renderItem={renderItem}
+          ListEmptyComponent={EmptyListNotification}
           keyExtractor={(item) => item.label}
         />
       </ListCard>
