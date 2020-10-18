@@ -5,11 +5,16 @@ import {
   RotationGestureHandler,
   TouchableOpacity,
 } from "react-native-gesture-handler";
+import { postAcceptRequest } from "./../../api/RequestsAPI";
 
 import { styles } from "./styles";
 
 export const PendingRequests = ({ route }) => {
   const { pendingRequests } = route.params;
+
+  const acceptRequest = (label, link, date, time, timeIsAmOrPm, className) => {
+      postAcceptRequest(label, link, date, time, timeIsAmOrPm, className);
+  };
 
   const renderItem = ({ item }) => {
     return (
@@ -22,7 +27,10 @@ export const PendingRequests = ({ route }) => {
         </Text>
         <Text style={styles.itemText}>{"Class: " + item.class}</Text>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.accept}>
+          <TouchableOpacity
+            style={styles.accept}
+            onPress={() => acceptRequest(item.label, item.link, item.date, item.time, item.timeIsAmOrPm, item.class)}
+          >
             <Text style={styles.buttonText}>Accept</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.decline}>

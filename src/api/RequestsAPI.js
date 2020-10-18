@@ -10,17 +10,24 @@ export const getRequests = async () => {
     .catch((e) => {
       console.log(e);
     });
-}
+};
 
-export const postRequest = async (name, link, date, time, timeIsAmOrPm, selectedCategory) => {
-    return await axios
+export const postRequest = async (
+  name,
+  link,
+  date,
+  time,
+  timeIsAmOrPm,
+  selectedCategory
+) => {
+  return await axios
     .post(url + "study-group-requests", {
       name: name,
       link: link,
       date: date,
       time: time,
       timeIsAmOrPm: timeIsAmOrPm,
-      selectedCategory: selectedCategory
+      selectedCategory: selectedCategory,
     })
     .then((res) => {
       return res.data;
@@ -28,4 +35,29 @@ export const postRequest = async (name, link, date, time, timeIsAmOrPm, selected
     .catch((e) => {
       console.log(e);
     });
-}
+};
+
+export const postAcceptRequest = async (
+  label,
+  link,
+  date,
+  time,
+  timeIsAmOrPm,
+  className
+) => {
+  return await axios
+    .post(url + "study-group-requests/accept", {
+      label: label,
+      link: link,
+      date: date,
+      time: time,
+      timeIsAmOrPm: timeIsAmOrPm,
+      className: className,
+    })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+};
