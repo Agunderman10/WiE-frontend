@@ -5,6 +5,7 @@ import {
   RotationGestureHandler,
   TouchableOpacity,
 } from "react-native-gesture-handler";
+import { EmptyListNotification } from "../../components/EmptyListNotification";
 import { postAcceptRequest, deleteDeclinedRequest } from "./../../api/RequestsAPI";
 
 import { styles } from "./styles";
@@ -60,6 +61,7 @@ export const PendingRequests = ({ route }) => {
         data={pendingRequestsData}
         extraData={pendingRequestsData}
         renderItem={renderItem}
+        ListEmptyComponent={EmptyListNotification}
         keyExtractor={(item) => item.label}
       />
     </View>
