@@ -10,11 +10,13 @@ import { StudyGroups } from "./StudyGroups/index";
 import { FAQ } from "./FAQ/index";
 import { IndividualEvent } from "./IndividualEvent";
 import { Settings } from "./Settings/index";
-import { Button, View } from "react-native";
+import { Button, Text, View } from "react-native";
 import { AddItems } from "./AddItems";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { AddRequest } from "./AddRequest";
 import { PendingRequests } from "./PendingRequests";
+import { SignUp } from "./Landing/SignUp";
+import { Landing } from "./Landing";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -110,7 +112,7 @@ function HomeStack() {
   );
 }
 
-export function Screens() {
+function Navigator() {
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -171,5 +173,17 @@ export function Screens() {
         }}
       />
     </Tab.Navigator>
+  );
+}
+
+export function Screens() {
+  let isSignedIn = true;
+
+  return (
+    isSignedIn ? (
+      <Navigator />
+    ) : (
+      <Landing />
+    )
   );
 }

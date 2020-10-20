@@ -7,7 +7,6 @@ import { Landing } from "./src/screens/Landing/index";
 export default function App() {
   return (
     <NavigationContainer>
-      <Landing />
       <Screens />
     </NavigationContainer>
   );
