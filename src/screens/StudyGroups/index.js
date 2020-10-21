@@ -19,38 +19,36 @@ export function StudyGroups({ studyGroupsData, navigation }) {
   }, []);
 
   const getStudyGroupsFromApI = async (data) => {
-    await getStudyGroups().then((data) => {
-      for (var i = 0; i < data.length; i++) {
-        if (data[i].class === "FE 1181") {
-          fe1181Ref.current.push({
-            label: data[i].label,
-            link: data[i].link,
-            date: data[i].date,
-            time: data[i].time,
-            timeIsAmOrPm: data[i].timeIsAmOrPm,
-            image: "./../../../images/Oval.jpg",
-          });
-        } else if (data[i].class === "FEH") {
-          fehRef.current.push({
-            label: data[i].label,
-            link: data[i].link,
-            date: data[i].date,
-            time: data[i].time,
-            timeIsAmOrPm: data[i].timeIsAmOrPm,
-            image: "./../../../images/Oval.jpg",
-          });
-        } else {
-          physics1250Ref.current.push({
-            label: data[i].label,
-            link: data[i].link,
-            date: data[i].date,
-            time: data[i].time,
-            timeIsAmOrPm: data[i].timeIsAmOrPm,
-            image: "./../../../images/Oval.jpg",
-          });
-        }
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].class === "FE 1181") {
+        fe1181Ref.current.push({
+          label: data[i].label,
+          link: data[i].link,
+          date: data[i].date,
+          time: data[i].time,
+          timeIsAmOrPm: data[i].timeIsAmOrPm,
+          image: "./../../../images/Oval.jpg",
+        });
+      } else if (data[i].class === "FEH") {
+        fehRef.current.push({
+          label: data[i].label,
+          link: data[i].link,
+          date: data[i].date,
+          time: data[i].time,
+          timeIsAmOrPm: data[i].timeIsAmOrPm,
+          image: "./../../../images/Oval.jpg",
+        });
+      } else {
+        physics1250Ref.current.push({
+          label: data[i].label,
+          link: data[i].link,
+          date: data[i].date,
+          time: data[i].time,
+          timeIsAmOrPm: data[i].timeIsAmOrPm,
+          image: "./../../../images/Oval.jpg",
+        });
       }
-    });
+    }
   };
 
   const DATA = [
