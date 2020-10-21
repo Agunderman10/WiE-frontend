@@ -16,10 +16,10 @@ export function StudyGroups({ studyGroupsData }) {
   const physics1250Ref = useRef([]);
 
   useEffect(() => {
-    getStudyGroupsFromApI(studyGroupsRef.current);
+    organizeStudyGroupsFromAPI(studyGroupsRef.current);
   }, []);
 
-  const getStudyGroupsFromApI = async (data) => {
+  const organizeStudyGroupsFromAPI = async (data) => {
     for (var i = 0; i < data.length; i++) {
       if (data[i].class === "FE 1181") {
         fe1181Ref.current.push({
