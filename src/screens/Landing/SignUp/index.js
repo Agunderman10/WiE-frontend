@@ -12,8 +12,6 @@ import { Loader } from "./../../../components/Loader/index";
 
 import { styles } from "./../styles";
 
-import { Screens } from "../../index"; // will remove this later
-
 export const SignUp = ({
   setSignUpModalVisible,
   signUpModalVisible,
