@@ -14,10 +14,10 @@ export function Home({ eventsData }) {
   const empowhermentLcEventsRef = useRef([]);
 
   useEffect(() => {
-    getEventsFromAPI(events.current);
+    organizeEventsFromAPI(events.current);
   }, []);
 
-  const getEventsFromAPI = async (data) => {
+  const organizeEventsFromAPI = async (data) => {
     // organize data into arrays based on type for ui display
     for (var i = 0; i < data.length; i++) {
       if (data[i].type === "PREFACE") {
