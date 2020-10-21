@@ -22,7 +22,6 @@ export function Home({ eventsData }) {
   }, []);
 
   const getEventsFromAPI = async (data) => {
-    console.log(data.length);
     // organize data into arrays based on type for ui display
     for (var i = 0; i < data.length; i++) {
       if (data[i].type === "PREFACE") {

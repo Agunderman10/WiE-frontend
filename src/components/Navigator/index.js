@@ -43,7 +43,7 @@ export function Navigator({ eventsData, studyGroupsData }) {
       />
       <Tab.Screen
         name="Study Groups"
-        component={StudyGroups}
+        children={() => <StudyGroups studyGroupsData={studyGroupsData} />}
         options={({ navigation }) => ({
           tabBarLabel: "Study Groups",
           tabBarIcon: ({ color, size }) => (

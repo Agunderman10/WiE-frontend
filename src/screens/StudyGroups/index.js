@@ -8,16 +8,17 @@ import { getStudyGroups } from "./../../api/StudyGroupsAPI";
 import { styles } from "./styles";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
 
-export function StudyGroups({ navigation }) {
+export function StudyGroups({ studyGroupsData, navigation }) {
+  const studyGroupsRef = useRef(studyGroupsData);
   const fe1181Ref = useRef([]);
   const fehRef = useRef([]);
   const physics1250Ref = useRef([]);
 
   useEffect(() => {
-    getStudyGroupsFromApI();
-  });
+    getStudyGroupsFromApI(studyGroupsRef.current);
+  }, []);
 
-  const getStudyGroupsFromApI = async () => {
+  const getStudyGroupsFromApI = async (data) => {
     await getStudyGroups().then((data) => {
       for (var i = 0; i < data.length; i++) {
         if (data[i].class === "FE 1181") {
