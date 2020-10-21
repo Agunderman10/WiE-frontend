@@ -5,7 +5,10 @@ import { styles } from "./styles";
 export const SplashScreen = () => {
   return (
     <View>
-      <Image style={styles.image} source={require("./../../../images/Oval.jpg")} />
+      <Image
+        style={styles.image}
+        source={require("./../../../images/Oval.jpg")}
+      />
     </View>
   );
 };

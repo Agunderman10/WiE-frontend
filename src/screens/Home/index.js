@@ -9,53 +9,49 @@ import { styles } from "./styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
 
-export function Home({ navigation }) {
+export function Home({ eventsData, navigation }) {
+  const events = useRef(eventsData);
   const osuEventsRef = useRef([]);
   const doiEventsRef = useRef([]);
   const empowhermentLcEventsRef = useRef([]);
 
   useEffect(() => {
-    getEventsFromAPI();
+    getEventsFromAPI(events.current);
   }, []);
 
-  const getEventsFromAPI = async () => {
-    await getEvents()
-      .then((data) => {
-        // organize data into arrays based on type for ui display
-        for (var i = 0; i < data.length; i++) {
-          if (data[i].type === "PREFACE") {
-            osuEventsRef.current.push({
-              label: data[i].label,
-              link: data[i].link,
-              date: data[i].date,
-              time: data[i].time,
-              timeIsAmOrPm: data[i].timeIsAmOrPm,
-              image: "./../../../images/Oval.jpg",
-            });
-          } else if (data[i].type === "DOI Events") {
-            doiEventsRef.current.push({
-              label: data[i].label,
-              link: data[i].link,
-              date: data[i].date,
-              time: data[i].time,
-              timeIsAmOrPm: data[i].timeIsAmOrPm,
-              image: "./../../../images/Oval.jpg",
-            });
-          } else if (data[i].type === "EmpowHERment LC Events") {
-            empowhermentLcEventsRef.current.push({
-              label: data[i].label,
-              link: data[i].link,
-              date: data[i].date,
-              time: data[i].time,
-              timeIsAmOrPm: data[i].timeIsAmOrPm,
-              image: "./../../../images/Oval.jpg",
-            });
-          }
-        }
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+  const getEventsFromAPI = async (data) => {
+    console.log(data.length);
+    // organize data into arrays based on type for ui display
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].type === "PREFACE") {
+        osuEventsRef.current.push({
+          label: data[i].label,
+          link: data[i].link,
+          date: data[i].date,
+          time: data[i].time,
+          timeIsAmOrPm: data[i].timeIsAmOrPm,
+          image: "./../../../images/Oval.jpg",
+        });
+      } else if (data[i].type === "DOI Events") {
+        doiEventsRef.current.push({
+          label: data[i].label,
+          link: data[i].link,
+          date: data[i].date,
+          time: data[i].time,
+          timeIsAmOrPm: data[i].timeIsAmOrPm,
+          image: "./../../../images/Oval.jpg",
+        });
+      } else if (data[i].type === "EmpowHERment LC Events") {
+        empowhermentLcEventsRef.current.push({
+          label: data[i].label,
+          link: data[i].link,
+          date: data[i].date,
+          time: data[i].time,
+          timeIsAmOrPm: data[i].timeIsAmOrPm,
+          image: "./../../../images/Oval.jpg",
+        });
+      }
+    }
   };
 
   /*

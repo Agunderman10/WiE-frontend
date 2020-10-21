@@ -19,7 +19,7 @@ export function Navigator({ eventsData, studyGroupsData }) {
     >
       <Tab.Screen
         name="Home"
-        children={HomeStack}
+        children={() => <HomeStack eventsData={eventsData} />}
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (

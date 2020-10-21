@@ -11,12 +11,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
-export function HomeStack() {
+export function HomeStack({ eventsData }) {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="Home"
-        component={Home}
+        children={() => <Home eventsData={eventsData} />}
         options={({ navigation }) => ({
           headerStyle: {
             backgroundColor: "red",
