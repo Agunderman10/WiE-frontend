@@ -44,7 +44,7 @@ export function Navigator({ eventsData, studyGroupsData }) {
       <Tab.Screen
         name="Study Groups"
         children={() => <StudyGroups studyGroupsData={studyGroupsData} />}
-        options={({ navigation }) => ({
+        options={{
           tabBarLabel: "Study Groups",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
@@ -53,7 +53,7 @@ export function Navigator({ eventsData, studyGroupsData }) {
               size={size}
             />
           ),
-        })}
+        }}
       />
       <Tab.Screen
         name="FAQ"
