@@ -29,11 +29,27 @@ export const AddRequest = () => {
         setLoading(false);
       }, 2000);
     } else {
-      setTimeout(() => {
-        postRequest(name, link, date, time, timeIsAmOrPm, selectedCategory);
-        clearAllInputs();
-        Alert.alert("Success", "Your new item was added!");
-        setLoading(false);
+      setTimeout(async () => {
+        let isSuccess = await postRequest(
+          name,
+          link,
+          date,
+          time,
+          timeIsAmOrPm,
+          selectedCategory
+        );
+
+        if (isSuccess.success) {
+          clearAllInputs();
+          Alert.alert("Success", "Your request was submitted!");
+          setLoading(false);
+        } else {
+          Alert.alert(
+            "Error",
+            "There was an error adding your request. Please try again or try later."
+          );
+          setLoading(false);
+        }
       }, 2000);
     }
     console.log(name, link, date, time, timeIsAmOrPm, selectedCategory);
