@@ -7,7 +7,7 @@ import { ListCard } from "./../../components/ListCard/index";
 import { styles } from "./styles";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
 
-export function StudyGroups({ studyGroupsData, navigation }) {
+export function StudyGroups({ studyGroupsData }) {
   const studyGroupsRef = useRef(studyGroupsData);
   const fe1181Ref = useRef([]);
   const fehRef = useRef([]);
