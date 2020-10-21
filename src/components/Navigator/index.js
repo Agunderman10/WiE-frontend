@@ -9,7 +9,7 @@ import { HomeStack } from "./../HomeStack/index";
 const Tab = createBottomTabNavigator();
 
 
-export function Navigator() {
+export function Navigator({ eventsData, studyGroupsData }) {
   return (
     <Tab.Navigator
       initialRouteName="Home"
