@@ -38,20 +38,29 @@ export const PendingRequests = ({ route }) => {
         (item) => item.link !== link
       );
       setPendingRequestsData(filteredData);
-    }
-    else {
-      Alert.alert("Error", "There was an issue accepting this request. Please try again later.");
+    } else {
+      Alert.alert(
+        "Error",
+        "There was an issue accepting this request. Please try again later."
+      );
     }
   };
 
-  const declineRequest = (link) => {
-    deleteDeclinedRequest(link);
+  const declineRequest = async (link) => {
+    let isSuccess = await deleteDeclinedRequest(link);
 
-    // remove declined request from pending list
-    const filteredData = pendingRequestsData.filter(
-      (item) => item.link !== link
-    );
-    setPendingRequestsData(filteredData);
+    if (isSuccess.success) {
+      // remove declined request from pending list
+      const filteredData = pendingRequestsData.filter(
+        (item) => item.link !== link
+      );
+      setPendingRequestsData(filteredData);
+    } else {
+      Alert.alert(
+        "Error",
+        "There was an issue declining this request. Please try again later."
+      );
+    }
   };
 
   const renderItem = ({ item }) => {
