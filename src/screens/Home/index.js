@@ -8,8 +8,10 @@ import { getEvents } from "./../../api/EventsAPI";
 import { styles } from "./styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
+import { useNavigation } from "@react-navigation/native";
 
-export function Home({ eventsData, navigation }) {
+export function Home({ eventsData }) {
+  const navigation = useNavigation();
   const events = useRef(eventsData);
   const osuEventsRef = useRef([]);
   const doiEventsRef = useRef([]);
