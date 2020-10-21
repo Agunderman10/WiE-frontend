@@ -1,33 +1,55 @@
 import React, { useState } from "react";
 import { Text, View } from "react-native";
-import {
-  FlatList,
-  TouchableOpacity,
-} from "react-native-gesture-handler";
+import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
-import { postAcceptRequest, deleteDeclinedRequest } from "./../../api/RequestsAPI";
+import {
+  postAcceptRequest,
+  deleteDeclinedRequest,
+} from "./../../api/RequestsAPI";
 
 import { styles } from "./styles";
 
 export const PendingRequests = ({ route }) => {
   const { pendingRequests } = route.params;
-  const [pendingRequestsData, setPendingRequestsData] = useState(pendingRequests);
+  const [pendingRequestsData, setPendingRequestsData] = useState(
+    pendingRequests
+  );
 
-  const acceptRequest = (label, link, date, time, timeIsAmOrPm, className) => {
-      postAcceptRequest(label, link, date, time, timeIsAmOrPm, className);
+  const acceptRequest = async (
+    label,
+    link,
+    date,
+    time,
+    timeIsAmOrPm,
+    className
+  ) => {
+    let isSuccess = await postAcceptRequest(
+      label,
+      link,
+      date,
+      time,
+      timeIsAmOrPm,
+      className
+    );
 
+    if (isSuccess.success) {
       // remove accepted request from pending list
-      const filteredData = pendingRequestsData.filter(item => item.link !== link);
+      const filteredData = pendingRequestsData.filter(
+        (item) => item.link !== link
+      );
       setPendingRequestsData(filteredData);
+    }
   };
 
   const declineRequest = (link) => {
     deleteDeclinedRequest(link);
 
     // remove declined request from pending list
-    const filteredData = pendingRequestsData.filter(item => item.link !== link);
+    const filteredData = pendingRequestsData.filter(
+      (item) => item.link !== link
+    );
     setPendingRequestsData(filteredData);
-  }
+  };
 
   const renderItem = ({ item }) => {
     return (
@@ -42,11 +64,23 @@ export const PendingRequests = ({ route }) => {
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.accept}
-            onPress={() => acceptRequest(item.label, item.link, item.date, item.time, item.timeIsAmOrPm, item.class)}
+            onPress={() =>
+              acceptRequest(
+                item.label,
+                item.link,
+                item.date,
+                item.time,
+                item.timeIsAmOrPm,
+                item.class
+              )
+            }
           >
             <Text style={styles.buttonText}>Accept</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.decline} onPress={() => declineRequest(item.link)}>
+          <TouchableOpacity
+            style={styles.decline}
+            onPress={() => declineRequest(item.link)}
+          >
             <Text style={styles.buttonText}>Decline</Text>
           </TouchableOpacity>
         </View>
