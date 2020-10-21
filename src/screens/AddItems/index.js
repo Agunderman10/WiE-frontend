@@ -47,10 +47,12 @@ export const AddItems = () => {
           clearAllInputs();
           Alert.alert("Success", "Your new item was added!");
           setLoading(false);
-        }
-        else {
-          Alert.alert("Error", "There was an error adding your item. Please try again or try later.");
-          setLoading(false)
+        } else {
+          Alert.alert(
+            "Error",
+            "There was an error adding your item. Please try again or try later."
+          );
+          setLoading(false);
         }
       }, 2000);
     } else {
