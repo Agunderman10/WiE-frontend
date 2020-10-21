@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Button, Text, View } from "react-native";
+import React, { useState } from "react";
+import { Text, View } from "react-native";
 import {
   FlatList,
-  RotationGestureHandler,
   TouchableOpacity,
 } from "react-native-gesture-handler";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
