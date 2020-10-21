@@ -23,6 +23,7 @@ export const postEvent = async (name, link, date, time, timeIsAmOrPm, selectedCa
       selectedCategory: selectedCategory
     })
     .then((res) => {
+      console.log(res.data);
       return res.data;
     })
     .catch((e) => {

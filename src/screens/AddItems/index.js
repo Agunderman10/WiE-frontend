@@ -34,11 +34,24 @@ export const AddItems = () => {
       selectedCategory === "WiE LC Events" ||
       selectedCategory === "DOI Events"
     ) {
-      setTimeout(() => {
-        postEvent(name, link, date, time, timeIsAmOrPm, selectedCategory);
-        clearAllInputs();
-        Alert.alert("Success", "Your new item was added!");
-        setLoading(false);
+      setTimeout(async () => {
+        let isSuccess = await postEvent(
+          name,
+          link,
+          date,
+          time,
+          timeIsAmOrPm,
+          selectedCategory
+        );
+        if (isSuccess.success) {
+          clearAllInputs();
+          Alert.alert("Success", "Your new item was added!");
+          setLoading(false);
+        }
+        else {
+          Alert.alert("Error", "There was an error adding your item. Please try again or try later.");
+          setLoading(false)
+        }
       }, 2000);
     } else {
       setTimeout(() => {
