@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Button, Alert } from "react-native";
+import { View, Text, Alert } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import { Picker } from "@react-native-community/picker";
 import { postRequest } from "./../../api/RequestsAPI";
