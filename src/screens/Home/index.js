@@ -1,12 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import { View, Text, FlatList, Button } from "react-native";
-
+import { View, Text, FlatList } from "react-native";
 import { Card } from "../../components/Card/index";
-import { Header } from "./../../components/Header/index";
 import { ListCard } from "./../../components/ListCard/index";
-import { getEvents } from "./../../api/EventsAPI";
 import { styles } from "./styles";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
 import { useNavigation } from "@react-navigation/native";
 
