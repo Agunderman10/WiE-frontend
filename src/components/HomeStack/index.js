@@ -8,10 +8,12 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { AddRequest } from "./../../screens/AddRequest/index";
 import { PendingRequests } from "./../../screens/PendingRequests/index";
 import { createStackNavigator } from "@react-navigation/stack";
+import { useNavigation } from "@react-navigation/native";
 
 const Stack = createStackNavigator();
 
 export function HomeStack({ eventsData }) {
+  const navigation = useNavigation();
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -30,7 +32,7 @@ export function HomeStack({ eventsData }) {
             <TouchableOpacity
               onPress={() => {
                 console.log("pressed here");
-                navigation.navigate("Settings", { navigation });
+                navigation.navigate("Settings");
               }}
             >
               <MaterialCommunityIcons
