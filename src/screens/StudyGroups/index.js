@@ -4,7 +4,6 @@ import { View, Text, FlatList, ScrollView } from "react-native";
 import { Card } from "../../components/Card/index";
 import { Header } from "./../../components/Header/index";
 import { ListCard } from "./../../components/ListCard/index";
-import { getStudyGroups } from "./../../api/StudyGroupsAPI";
 import { styles } from "./styles";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
 
