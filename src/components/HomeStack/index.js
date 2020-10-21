@@ -17,7 +17,7 @@ export function HomeStack({ eventsData }) {
       <Stack.Screen
         name="Home"
         children={() => <Home eventsData={eventsData} />}
-        options={({ navigation }) => ({
+        options={{
           headerStyle: {
             backgroundColor: "red",
           },
@@ -41,7 +41,7 @@ export function HomeStack({ eventsData }) {
               />
             </TouchableOpacity>
           ),
-        })}
+        }}
       />
       <Stack.Screen
         name="Settings"
