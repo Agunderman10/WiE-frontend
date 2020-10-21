@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
 import {
@@ -38,6 +38,9 @@ export const PendingRequests = ({ route }) => {
         (item) => item.link !== link
       );
       setPendingRequestsData(filteredData);
+    }
+    else {
+      Alert.alert("Error", "There was an issue accepting this request. Please try again later.");
     }
   };
 
