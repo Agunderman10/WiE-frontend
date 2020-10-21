@@ -50,15 +50,33 @@ export const AddItems = () => {
         } else {
           Alert.alert(
             "Error",
-            "There was an error adding your item. Please try again or try later."
+            "There was an error adding your item. Please try again later."
           );
           setLoading(false);
         }
       }, 2000);
     } else {
-      setTimeout(() => {
-        postStudyGroup(name, link, date, time, timeIsAmOrPm, selectedCategory);
-        setLoading(false);
+      setTimeout(async () => {
+        let isSuccess = await postStudyGroup(
+          name,
+          link,
+          date,
+          time,
+          timeIsAmOrPm,
+          selectedCategory
+        );
+
+        if (isSuccess.success) {
+          clearAllInputs();
+          Alert.alert("Success", "Your new item was added!");
+          setLoading(false);
+        } else {
+          Alert.alert(
+            "Error",
+            "There was an error adding your item. Please try again later."
+          );
+          setLoading(false);
+        }
       }, 2000);
     }
     console.log(name, link, date, time, timeIsAmOrPm, selectedCategory);
