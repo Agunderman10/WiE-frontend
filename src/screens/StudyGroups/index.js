@@ -6,8 +6,10 @@ import { Header } from "./../../components/Header/index";
 import { ListCard } from "./../../components/ListCard/index";
 import { styles } from "./styles";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
+import { useNavigation } from "@react-navigation/native";
 
 export function StudyGroups({ studyGroupsData }) {
+  const navigation = useNavigation();
   const studyGroupsRef = useRef(studyGroupsData);
   const fe1181Ref = useRef([]);
   const fehRef = useRef([]);
