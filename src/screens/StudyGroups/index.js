@@ -81,7 +81,6 @@ export function StudyGroups({ studyGroupsData }) {
   ];
 
   const renderItem = ({ item }) => {
-    //console.log(item.label);
     return (
       <Card
         image={item.image}
