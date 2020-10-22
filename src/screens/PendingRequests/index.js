@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Alert, Text, View } from "react-native";
+import { Alert, RefreshControl, ScrollView, Text, View } from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
 import {
   postAcceptRequest,
   deleteDeclinedRequest,
+  getRequests,
 } from "./../../api/RequestsAPI";
 
 import { styles } from "./styles";
@@ -14,6 +15,7 @@ export const PendingRequests = ({ route }) => {
   const [pendingRequestsData, setPendingRequestsData] = useState(
     pendingRequests
   );
+  const [refreshing, setRefreshing] = useState(false);
 
   const acceptRequest = async (
     label,
@@ -63,6 +65,12 @@ export const PendingRequests = ({ route }) => {
     }
   };
 
+  const refreshData = async () => {
+    await getRequests().then((data) => {
+      setPendingRequestsData(data);
+    });
+  };
+
   const renderItem = ({ item }) => {
     return (
       <View style={styles.itemContainer}>
@@ -103,11 +111,18 @@ export const PendingRequests = ({ route }) => {
   return (
     <View>
       <FlatList
+        style={styles.container}
         data={pendingRequestsData}
         extraData={pendingRequestsData}
         renderItem={renderItem}
         ListEmptyComponent={EmptyListNotification}
         keyExtractor={(item) => item.label}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={() => refreshData()}
+          />
+        }
       />
     </View>
   );
