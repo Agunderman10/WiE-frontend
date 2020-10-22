@@ -23,7 +23,7 @@ export function Home({ eventsData }) {
     let organizedOsuEvents = [];
     let organizedDoiEvents = [];
     let organizedEmpowermentLcEvents = [];
-    
+
     // organize data into arrays based on type for ui display
     for (var i = 0; i < data.length; i++) {
       if (data[i].type === "PREFACE") {
@@ -81,6 +81,12 @@ export function Home({ eventsData }) {
   ];
   */
 
+  const refreshData = async () => {
+    await getEvents().then((data) => {
+      organizeEventsFromAPI(data);
+    });
+  };
+
   const renderItem = ({ item }) => {
     return (
       <Card
@@ -112,11 +118,7 @@ export function Home({ eventsData }) {
           refreshControl={
             <RefreshControl
               refreshing={refreshing}
-              onRefresh={async () => {
-                await getEvents().then(async (data) => {
-                  organizeEventsFromAPI(data);
-                });
-              }}
+              onRefresh={() => refreshData()}
             />
           }
         />
@@ -132,6 +134,12 @@ export function Home({ eventsData }) {
           renderItem={renderItem}
           ListEmptyComponent={EmptyListNotification}
           keyExtractor={(item) => item.label}
+          refreshControl={
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={() => refreshData()}
+            />
+          }
         />
       </ListCard>
 
@@ -145,6 +153,12 @@ export function Home({ eventsData }) {
           renderItem={renderItem}
           ListEmptyComponent={EmptyListNotification}
           keyExtractor={(item) => item.label}
+          refreshControl={
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={() => refreshData()}
+            />
+          }
         />
       </ListCard>
     </View>
