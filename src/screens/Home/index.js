@@ -1,27 +1,33 @@
-import React, { useEffect, useRef } from "react";
-import { View, Text, FlatList } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { View, Text, FlatList, RefreshControl } from "react-native";
 import { Card } from "../../components/Card/index";
 import { ListCard } from "./../../components/ListCard/index";
 import { styles } from "./styles";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
 import { useNavigation } from "@react-navigation/native";
+import { getEvents } from "../../api/EventsAPI";
 
 export function Home({ eventsData }) {
   const navigation = useNavigation();
-  const events = useRef(eventsData);
-  const osuEventsRef = useRef([]);
-  const doiEventsRef = useRef([]);
-  const empowhermentLcEventsRef = useRef([]);
+  const events = useState(eventsData);
+  const [osuEvents, setOsuEvents] = useState([]);
+  const [doiEvents, setDoiEvents] = useState([]);
+  const [empowhermentLcEvents, setEmpowermentLcEvents] = useState([]);
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
-    organizeEventsFromAPI(events.current);
+    organizeEventsFromAPI(events[0]);
   }, []);
 
   const organizeEventsFromAPI = async (data) => {
+    organizedOsuEvents = [];
+    organizedDoiEvents = [];
+    organizedEmpowermentLcEvents = [];
+    
     // organize data into arrays based on type for ui display
     for (var i = 0; i < data.length; i++) {
       if (data[i].type === "PREFACE") {
-        osuEventsRef.current.push({
+        organizedOsuEvents.push({
           label: data[i].label,
           link: data[i].link,
           date: data[i].date,
@@ -30,7 +36,7 @@ export function Home({ eventsData }) {
           image: "./../../../images/Oval.jpg",
         });
       } else if (data[i].type === "DOI Events") {
-        doiEventsRef.current.push({
+        organizedDoiEvents.push({
           label: data[i].label,
           link: data[i].link,
           date: data[i].date,
@@ -39,7 +45,7 @@ export function Home({ eventsData }) {
           image: "./../../../images/Oval.jpg",
         });
       } else if (data[i].type === "EmpowHERment LC Events") {
-        empowhermentLcEventsRef.current.push({
+        organizedEmpowermentLcEvents.push({
           label: data[i].label,
           link: data[i].link,
           date: data[i].date,
@@ -48,6 +54,9 @@ export function Home({ eventsData }) {
           image: "./../../../images/Oval.jpg",
         });
       }
+      setOsuEvents(organizedOsuEvents);
+      setDoiEvents(organizedDoiEvents);
+      setEmpowermentLcEvents(organizedEmpowermentLcEvents);
     }
   };
 
@@ -95,11 +104,21 @@ export function Home({ eventsData }) {
         <FlatList
           style={{ height: "20%" }}
           horizontal={true}
-          data={doiEventsRef.current}
-          extraData={doiEventsRef.current}
+          data={doiEvents}
+          extraData={doiEvents}
           renderItem={renderItem}
           ListEmptyComponent={EmptyListNotification}
           keyExtractor={(item) => item.label}
+          refreshControl={
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={async () => {
+                await getEvents().then(async (data) => {
+                  organizeEventsFromAPI(data);
+                });
+              }}
+            />
+          }
         />
       </ListCard>
 
@@ -108,8 +127,8 @@ export function Home({ eventsData }) {
         <FlatList
           style={{ height: "20%" }}
           horizontal={true}
-          data={osuEventsRef.current}
-          extraData={osuEventsRef.current}
+          data={osuEvents}
+          extraData={osuEvents}
           renderItem={renderItem}
           ListEmptyComponent={EmptyListNotification}
           keyExtractor={(item) => item.label}
@@ -121,8 +140,8 @@ export function Home({ eventsData }) {
         <FlatList
           style={{ height: "20%" }}
           horizontal={true}
-          data={empowhermentLcEventsRef.current}
-          extraData={empowhermentLcEventsRef.current}
+          data={empowhermentLcEvents}
+          extraData={empowhermentLcEvents}
           renderItem={renderItem}
           ListEmptyComponent={EmptyListNotification}
           keyExtractor={(item) => item.label}
