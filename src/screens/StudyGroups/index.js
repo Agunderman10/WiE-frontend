@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { View, Text, FlatList, ScrollView } from "react-native";
+import { View, Text, FlatList, ScrollView, RefreshControl } from "react-native";
 
 import { Card } from "../../components/Card/index";
 import { Header } from "./../../components/Header/index";
@@ -7,6 +7,7 @@ import { ListCard } from "./../../components/ListCard/index";
 import { styles } from "./styles";
 import { EmptyListNotification } from "../../components/EmptyListNotification";
 import { useNavigation } from "@react-navigation/native";
+import { getStudyGroups } from "../../api/StudyGroupsAPI";
 
 export function StudyGroups({ studyGroupsData }) {
   const navigation = useNavigation();
@@ -17,6 +18,7 @@ export function StudyGroups({ studyGroupsData }) {
   const [physics1251, setPhysics1251] = useState([]);
   const [chem1210, setChem1210] = useState([]);
   const [math1172, Math1172] = useState([]);
+  const [refreshing, setRefreshing] = useState(false);
 
   useEffect(() => {
     organizeStudyGroupsFromAPI(studyGroups);
@@ -80,6 +82,12 @@ export function StudyGroups({ studyGroupsData }) {
     },
   ];
 
+  const refreshData = async () => {
+    await getStudyGroups().then((data) => {
+      organizeStudyGroupsFromAPI(data);
+    });
+  };
+
   const renderItem = ({ item }) => {
     return (
       <Card
@@ -96,7 +104,14 @@ export function StudyGroups({ studyGroupsData }) {
 
   return (
     <View>
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={() => refreshData()}
+          />
+        }
+      >
         <Header title={"Study Groups"} />
         <ListCard>
           <Text style={styles.groupHeader}>FE 1181</Text>

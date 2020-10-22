@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { View, Text, FlatList, RefreshControl } from "react-native";
+import { View, Text, FlatList, RefreshControl, ScrollView } from "react-native";
 import { Card } from "../../components/Card/index";
 import { ListCard } from "./../../components/ListCard/index";
 import { styles } from "./styles";
@@ -104,63 +104,71 @@ export function Home({ eventsData }) {
   return (
     <View>
       {/*<Header title={"Home"} />*/}
+      <ScrollView
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={() => refreshData()}
+          />
+        }
+      >
+        <ListCard>
+          <Text style={styles.eventTypeHeader}>DOI Events</Text>
+          <FlatList
+            style={{ height: "20%" }}
+            horizontal={true}
+            data={doiEvents}
+            extraData={doiEvents}
+            renderItem={renderItem}
+            ListEmptyComponent={EmptyListNotification}
+            keyExtractor={(item) => item.label}
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={() => refreshData()}
+              />
+            }
+          />
+        </ListCard>
 
-      <ListCard>
-        <Text style={styles.eventTypeHeader}>DOI Events</Text>
-        <FlatList
-          style={{ height: "20%" }}
-          horizontal={true}
-          data={doiEvents}
-          extraData={doiEvents}
-          renderItem={renderItem}
-          ListEmptyComponent={EmptyListNotification}
-          keyExtractor={(item) => item.label}
-          refreshControl={
-            <RefreshControl
-              refreshing={refreshing}
-              onRefresh={() => refreshData()}
-            />
-          }
-        />
-      </ListCard>
+        <ListCard>
+          <Text style={styles.eventTypeHeader}>PREFACE</Text>
+          <FlatList
+            style={{ height: "20%" }}
+            horizontal={true}
+            data={osuEvents}
+            extraData={osuEvents}
+            renderItem={renderItem}
+            ListEmptyComponent={EmptyListNotification}
+            keyExtractor={(item) => item.label}
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={() => refreshData()}
+              />
+            }
+          />
+        </ListCard>
 
-      <ListCard>
-        <Text style={styles.eventTypeHeader}>PREFACE</Text>
-        <FlatList
-          style={{ height: "20%" }}
-          horizontal={true}
-          data={osuEvents}
-          extraData={osuEvents}
-          renderItem={renderItem}
-          ListEmptyComponent={EmptyListNotification}
-          keyExtractor={(item) => item.label}
-          refreshControl={
-            <RefreshControl
-              refreshing={refreshing}
-              onRefresh={() => refreshData()}
-            />
-          }
-        />
-      </ListCard>
-
-      <ListCard>
-        <Text style={styles.eventTypeHeader}>EmpowHERment LC Events</Text>
-        <FlatList
-          style={{ height: "20%" }}
-          horizontal={true}
-          data={empowhermentLcEvents}
-          extraData={empowhermentLcEvents}
-          renderItem={renderItem}
-          ListEmptyComponent={EmptyListNotification}
-          keyExtractor={(item) => item.label}
-          refreshControl={
-            <RefreshControl
-              refreshing={refreshing}
-              onRefresh={() => refreshData()}
-            />
-          }
-        />
-      </ListCard>
+        <ListCard>
+          <Text style={styles.eventTypeHeader}>EmpowHERment LC Events</Text>
+          <FlatList
+            style={{ height: "20%" }}
+            horizontal={true}
+            data={empowhermentLcEvents}
+            extraData={empowhermentLcEvents}
+            renderItem={renderItem}
+            ListEmptyComponent={EmptyListNotification}
+            keyExtractor={(item) => item.label}
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={() => refreshData()}
+              />
+            }
+          />
+        </ListCard>
+      </ScrollView>
     </View>
   );
 }
