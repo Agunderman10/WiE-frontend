@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { View, Text, FlatList, ScrollView } from "react-native";
 
 import { Card } from "../../components/Card/index";
@@ -10,19 +10,29 @@ import { useNavigation } from "@react-navigation/native";
 
 export function StudyGroups({ studyGroupsData }) {
   const navigation = useNavigation();
-  const studyGroupsRef = useRef(studyGroupsData);
-  const fe1181Ref = useRef([]);
-  const fehRef = useRef([]);
-  const physics1250Ref = useRef([]);
+  const [studyGroups, setStudyGroups] = useState(studyGroupsData);
+  const [fe1181, setFe1181] = useState([]);
+  const [feh, setFeh] = useState([]);
+  const [physics1250, setPhysics1250] = useState([]);
+  const [physics1251, setPhysics1251] = useState([]);
+  const [chem1210, setChem1210] = useState([]);
+  const [math1172, Math1172] = useState([]);
 
   useEffect(() => {
-    organizeStudyGroupsFromAPI(studyGroupsRef.current);
+    organizeStudyGroupsFromAPI(studyGroups);
   }, []);
 
   const organizeStudyGroupsFromAPI = async (data) => {
+    let organizedFe1181 = [];
+    let organizedFeh = [];
+    let organizedPhysics1250 = [];
+    let organizedPhysics1251 = [];
+    let organizedChem1210 = [];
+    let organizedMath1172 = [];
+
     for (var i = 0; i < data.length; i++) {
       if (data[i].class === "FE 1181") {
-        fe1181Ref.current.push({
+        organizedFe1181.push({
           label: data[i].label,
           link: data[i].link,
           date: data[i].date,
@@ -31,7 +41,7 @@ export function StudyGroups({ studyGroupsData }) {
           image: "./../../../images/Oval.jpg",
         });
       } else if (data[i].class === "FEH") {
-        fehRef.current.push({
+        organizedFeh.push({
           label: data[i].label,
           link: data[i].link,
           date: data[i].date,
@@ -40,7 +50,7 @@ export function StudyGroups({ studyGroupsData }) {
           image: "./../../../images/Oval.jpg",
         });
       } else {
-        physics1250Ref.current.push({
+        organizedPhysics1250.push({
           label: data[i].label,
           link: data[i].link,
           date: data[i].date,
@@ -49,6 +59,9 @@ export function StudyGroups({ studyGroupsData }) {
           image: "./../../../images/Oval.jpg",
         });
       }
+      setFe1181(organizedFe1181);
+      setFeh(organizedFeh);
+      setPhysics1250(organizedPhysics1250);
     }
   };
 
@@ -91,8 +104,8 @@ export function StudyGroups({ studyGroupsData }) {
           <FlatList
             style={{ height: "10%" }}
             horizontal={true}
-            data={fe1181Ref.current}
-            extraData={fe1181Ref.current}
+            data={fe1181}
+            extraData={fe1181}
             renderItem={renderItem}
             ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}
@@ -104,8 +117,8 @@ export function StudyGroups({ studyGroupsData }) {
           <FlatList
             style={{ height: "10%" }}
             horizontal={true}
-            data={fehRef.current}
-            extraData={fehRef.current}
+            data={feh}
+            extraData={feh}
             renderItem={renderItem}
             ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}
@@ -117,8 +130,8 @@ export function StudyGroups({ studyGroupsData }) {
           <FlatList
             style={{ height: "10%" }}
             horizontal={true}
-            data={physics1250Ref.current}
-            extraData={physics1250Ref.current}
+            data={physics1250}
+            extraData={physics1250}
             renderItem={renderItem}
             ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}

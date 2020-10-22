@@ -20,9 +20,9 @@ export function Home({ eventsData }) {
   }, []);
 
   const organizeEventsFromAPI = async (data) => {
-    organizedOsuEvents = [];
-    organizedDoiEvents = [];
-    organizedEmpowermentLcEvents = [];
+    let organizedOsuEvents = [];
+    let organizedDoiEvents = [];
+    let organizedEmpowermentLcEvents = [];
     
     // organize data into arrays based on type for ui display
     for (var i = 0; i < data.length; i++) {
