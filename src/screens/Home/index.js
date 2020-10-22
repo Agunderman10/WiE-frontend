@@ -122,12 +122,6 @@ export function Home({ eventsData }) {
             renderItem={renderItem}
             ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}
-            refreshControl={
-              <RefreshControl
-                refreshing={refreshing}
-                onRefresh={() => refreshData()}
-              />
-            }
           />
         </ListCard>
 
@@ -141,12 +135,6 @@ export function Home({ eventsData }) {
             renderItem={renderItem}
             ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}
-            refreshControl={
-              <RefreshControl
-                refreshing={refreshing}
-                onRefresh={() => refreshData()}
-              />
-            }
           />
         </ListCard>
 
@@ -160,12 +148,6 @@ export function Home({ eventsData }) {
             renderItem={renderItem}
             ListEmptyComponent={EmptyListNotification}
             keyExtractor={(item) => item.label}
-            refreshControl={
-              <RefreshControl
-                refreshing={refreshing}
-                onRefresh={() => refreshData()}
-              />
-            }
           />
         </ListCard>
       </ScrollView>
