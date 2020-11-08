@@ -5,6 +5,7 @@ import { Resources } from "./../../screens/Resources/index";
 import { StudyGroups } from "./../../screens/StudyGroups/index";
 import { FAQ } from "./../../screens/FAQ";
 import { HomeStack } from "./../HomeStack/index";
+import { FAQStack } from "../FAQStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -57,7 +58,7 @@ export function Navigator({ eventsData, studyGroupsData }) {
       />
       <Tab.Screen
         name="FAQ"
-        component={FAQ}
+        children={() => <FAQStack />}
         options={{
           tabBarLabel: "FAQ",
           tabBarIcon: ({ color, size }) => (
