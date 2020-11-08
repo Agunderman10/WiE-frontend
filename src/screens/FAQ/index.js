@@ -10,7 +10,7 @@ export function FAQ() {
   return (
     <View>
       <ScrollView>
-        <Header title={"FAQ"} />
+        {/*<Header title={"FAQ"} />*/}
         <ListCard>
           <View style={styles.discussionBoard}>
             <Text style={styles.discussionBoardText}>Discussion Board</Text>
