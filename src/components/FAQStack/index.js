@@ -1,5 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
+import { Discussions } from "../../screens/Discussions";
 import { FAQ } from "../../screens/FAQ";
 
 const Stack = createStackNavigator();
@@ -10,6 +11,20 @@ export const FAQStack = () => {
       <Stack.Screen
         name="FAQ"
         children={() => <FAQ />}
+        options={{
+          headerStyle: {
+            backgroundColor: "red",
+          },
+          headerTintColor: "white",
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 23,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="Discussions"
+        component={Discussions}
         options={{
           headerStyle: {
             backgroundColor: "red",

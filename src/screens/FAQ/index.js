@@ -1,5 +1,7 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { Header } from "./../../components/Header/index";
 import { ListCard } from "./../../components/ListCard/index";
@@ -7,6 +9,7 @@ import { QuestionCard } from "./components/QuestionCard/index";
 import { styles } from "./styles";
 
 export function FAQ() {
+  const navigation = useNavigation();
   return (
     <View>
       <ScrollView>
@@ -15,7 +18,7 @@ export function FAQ() {
           <View style={styles.discussionBoard}>
             <Text style={styles.discussionBoardText}>Discussion Board</Text>
           </View>
-          <Text style={styles.moreInfo}>More info &gt;</Text>
+          <Text style={styles.moreInfo} onPress={() => navigation.navigate("Discussions")}>More info &gt;</Text>
         </ListCard>
         <ListCard>
           <QuestionCard
