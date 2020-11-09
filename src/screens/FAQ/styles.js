@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
         height: "7%",
     },
     discussionBoardText: {
-        fontSize: 20,
+        fontSize: 15,
         color: "black",
         fontWeight: "bold",
         marginLeft: 5,

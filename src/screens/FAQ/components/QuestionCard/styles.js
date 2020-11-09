@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     questionHeader: {
-        fontSize: 20,
+        fontSize: 15,
         color: "black",
         fontWeight: "bold",
         marginLeft: 5,

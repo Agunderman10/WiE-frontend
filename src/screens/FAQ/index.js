@@ -18,65 +18,57 @@ export function FAQ() {
           <View style={styles.discussionBoard}>
             <Text style={styles.discussionBoardText}>Discussion Board</Text>
           </View>
-          <Text style={styles.moreInfo} onPress={() => navigation.navigate("Discussions")}>More info &gt;</Text>
+          <Text
+            style={styles.moreInfo}
+            onPress={() => navigation.navigate("Discussions")}
+          >
+            More info &gt;
+          </Text>
         </ListCard>
         <ListCard>
           <QuestionCard
             questionBody={
-              "You will be living in Drackett with the rest of the learning community."
+              "Below is a link that goes more in-depth about scholarship opportunities for incoming first year student in engineering:"
             }
-            header={"What should I expect for housing my first year?"}
-          />
-        </ListCard>
-
-        <ListCard>
-          <QuestionCard
-            questionBody={
-              "You need to have at least 16 credit hours of classes that qualify for the program."
+            header={
+              "What scholarship opportunities are available to incoming first year students?"
             }
-            header={"What are the requirements for graduating in the program?"}
-          />
-        </ListCard>
-
-        <ListCard>
-          <QuestionCard
-            questionBody={
-              "It is typically around 16 credit hours. Over 18 will cost extra, so it's suggested to stay below that threshold."
-            }
-            header={"What does a typical first year schedule look like?"}
-          />
-        </ListCard>
-
-        <ListCard>
-          <QuestionCard
-            questionBody={
-              "It is typically around 16 credit hours. Over 18 will cost extra, so it's suggested to stay below that threshold."
-            }
-            header={"What does a typical first year schedule look like?"}
           />
         </ListCard>
         <ListCard>
           <QuestionCard
             questionBody={
-              "It is typically around 16 credit hours. Over 18 will cost extra, so it's suggested to stay below that threshold."
+              "Ultimately, the decision on which learning communities to apply for is up to you and what you feel is in your best interest. There is a wide range of learning communities available and more information can be found below to help you weigh your options:"
             }
-            header={"What does a typical first year schedule look like?"}
+            header={"How do I choose what learning community to apply for?"}
           />
         </ListCard>
         <ListCard>
           <QuestionCard
             questionBody={
-              "It is typically around 16 credit hours. Over 18 will cost extra, so it's suggested to stay below that threshold."
+              "When using credit to move on to a subsequent course, you will be responsible for having a strong foundation in all prerequisites. If you feel like you do not have a strong foundation, you can waive credit and start at the equivalent course that the credit would have covered. If you feel good with where you are at, you can use the credit and move on to the next course. More information regarding credit can be found below:"
             }
-            header={"What does a typical first year schedule look like?"}
+            header={
+              "I have credit from AP classes. Should I waive the credit or move to the next course?"
+            }
           />
         </ListCard>
         <ListCard>
           <QuestionCard
             questionBody={
-              "It is typically around 16 credit hours. Over 18 will cost extra, so it's suggested to stay below that threshold."
+              "Minor programs vary by department and college. Research different minor programs that you are interested in to get a sense for the necessary requirements. Next, reach out to your advisor to help you finalize plans and figure out ways to determine a graduation projection that best fits your needs."
             }
-            header={"What does a typical first year schedule look like?"}
+            header={
+              "I am interested in a minor. How do plan for this in my schedule?"
+            }
+          />
+        </ListCard>
+        <ListCard>
+          <QuestionCard
+            questionBody={
+              "On-campus residents select a meal plan when you complete your housing contract. Meal plans are also available for off-campus residents. Choose the plan that best matches how you prefer to eat. For more information about the various plans available and frequent terms like “Dining Dollars” and “BuckID Cash,” check out the link below:"
+            }
+            header={"How do I choose a meal plan and what should I pick?"}
           />
         </ListCard>
       </ScrollView>
