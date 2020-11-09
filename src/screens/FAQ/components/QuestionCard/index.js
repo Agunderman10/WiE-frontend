@@ -8,7 +8,6 @@ export const QuestionCard = (props) => {
     <View>
       <Text style={styles.questionHeader}>{props.header}</Text>
       <Text style={styles.questionBody}>{props.questionBody}</Text>
-      
     </View>
   );
 };
