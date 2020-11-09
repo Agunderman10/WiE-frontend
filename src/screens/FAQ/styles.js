@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     discussionBoard: {
-        height: "7%",
+        height: 50,
     },
     discussionBoardText: {
         fontSize: 15,
@@ -14,5 +14,9 @@ export const styles = StyleSheet.create({
         position: "absolute",
         right: 10,
         bottom: 5,
-    }
+        color: "black",
+    },
+    footerMargin: {
+        height: 15,
+    },
 });

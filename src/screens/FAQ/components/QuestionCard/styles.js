@@ -9,5 +9,8 @@ export const styles = StyleSheet.create({
     },
     questionBody: {
         marginLeft: 15,
+        marginTop: 5,
+        marginBottom: 5,
+        color: "black",
     }
 });
