@@ -1,5 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import React from "react";
+import { DiscussionReplies } from "../../screens/DiscussionReplies";
 import { Discussions } from "../../screens/Discussions";
 import { FAQ } from "../../screens/FAQ";
 
@@ -25,6 +26,20 @@ export const FAQStack = () => {
       <Stack.Screen
         name="Discussions"
         component={Discussions}
+        options={{
+          headerStyle: {
+            backgroundColor: "red",
+          },
+          headerTintColor: "white",
+          headerTitleStyle: {
+            fontWeight: "bold",
+            fontSize: 23,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="Discussion"
+        component={DiscussionReplies}
         options={{
           headerStyle: {
             backgroundColor: "red",
